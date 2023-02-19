@@ -1,0 +1,319 @@
+# CrossClassify iOS SDK
+The CrossClassify SDK for iOS apps, with two integrated examples:
+* [ios-firebase-example](https://github.com/angelmtzr/ios-firebase-example): a simple UIKit app for login/signup using Firebase Auth
+* [FirebaseLogin](https://github.com/Balaviknesh/iOS-SwiftUI-Firebase-Login-Example): a simple SwiftUI app for login/signup using Firebase Auth
+
+## Prerequisites
+
+-   Xcode
+-   Cocoapods
+-   A CrossClassify account
+-   A Firebase account (only for example apps)
+
+## Setup Example Apps locally
+1.  Clone or download the project
+2.  Run terminal on the project folder
+3.  ```pod install```
+4.  Open .xcworkspace file
+5.  Copy the `GoogleService-Info.plist` file to these paths:
+    - ./Example/firebaseLogin/firebaseLogin
+    - ./Example/ios-firebase-example/ios-firebase-example
+6.  Change the `siteId` and `apiKey` of crossclassify instances places in:
+    - ./Example/firebaseLogin/firebaseLogin/CrossClassifyInstance.swift
+    - ./Example/ios-firebase-example//ios-firebase-example//CrossClassifyInstance.swift
+6.  Build and run (FirebaseLogin or firebaseUIKit target).
+
+## SDK Integration Guide
+
+To make it easy for you to get started with crossclassify SDK, here's the list of next steps:
+
+1. [Install the CrossClassify SDK](https://github.com/crossclassify/2.xc-sdk-ios/#1install-the-crossclassify-sdk)
+2. [Import the CrossClassify module](https://github.com/crossclassify/xc-sdk-ios/#2import-the-crossclassify-module)
+3. [Initialize the CrossClassify object](https://github.com/crossclassify/xc-sdk-ios/#3initialize-the-crossclassify-object)
+4. [Track pages without any form](https://github.com/crossclassify/xc-sdk-ios/#4track-pages-without-any-form)
+5. [ Track pages containing a form](https://github.com/crossclassify/xc-sdk-ios/#5track-pages-with-a-from)
+
+
+### Step 1: Install the CrossClassify SDK
+
+1.  Open a terminal window and navigate to the root directory of your project.
+
+2.  If you don't already have a `Podfile`, create one by running the following command:
+```pod init``` 
+
+3.  Open the `Podfile` in a text editor and add the following line:
+```pod 'CrossClassify'```
+
+4.  Save the `Podfile` and run the following command to install the CrossClassify SDK:
+```pod install```
+
+### Step 2: Import the CrossClassify module
+
+In the file where you want to use the CrossClassify SDK, add the following line at the top:
+```swift
+import CrossClassify
+```
+
+### Step 3: Initialize the CrossClassify object
+
+Add the following code to your app, replacing "SITE_ID_HERE" and "API_KEY_HERE" with your site ID and API key:
+```swift
+extension CrossClassify {
+    public static let shared: CrossClassify = CrossClassify(siteId: "SITE_ID_HERE", apiKey: "API_KEY_HERE")
+}
+```
+This creates a static constant named `shared` that is an instance of the `CrossClassify` class initialized with your site ID and API key.
+
+### Step 4: Track pages without any form 
+Fo each page which contains no form (e.g. home page) do following instruction based on the framework. See step 4.1 and 4.2 for SwiftUI and UIKit versions respecitively. In both versions, you must specify **the page name**.
+
+#### Step 4.1: `SwiftUI` pages
+Call the following functions from the `body` variable of the `view` struct:
+```swift
+.onAppear{CrossClassify.shared.track(pageName: "PAGE_NAME_HERE")} 
+.onDisappear{CrossClassify.shared.stopTrack()}
+```
+Replace "PAGE_NAME_HERE" with the actual name of the page you want to track.
+
+#### Step 4.2: `UIKit` pages
+Add the following code in the `viewDidAppear(_:)` method if the page contains a form:
+```swift
+CrossClassify.shared.track(pageName: "PAGE_NAME_HERE") 
+```
+Replace "PAGE_NAME_HERE" with the actual name of the page you want to track.
+
+Also, add the following code in the `viewDidDissappear(_:)` method: 
+```swift
+CrossClassify.shared.stopTrack()
+```
+
+### Step 5: Track pages containing a form 
+Fo each page which contains a form (e.g. signup, login) do the following instructions based on the framework. See step 5.1 and 5.2 for SwiftUI and UIKit versions respecitively. In both versions, you must specify the following information:
+
+* **The Page Name** (a unique name for the page, e.g. `loginPage`, `signupPage`, and `updateProfilePage`)
+* **The Form Name** (a unique name for the form, e.g. `login`, `singup`, and `updateProfile`)
+* For each Field in the Form:
+    * **The Field Name** (a unique name for the field in the form, e.g. `username`, `password`, and `address`)
+    * **Content Tracking Status** (whether you want to send us the content of the field)
+* **The Submission Button**
+#### Step 5.1: `SwiftUI` pages
+
+**Specify Page Name and Form Name**
+
+Call the following functions from the `body` variable of the `view` struct:
+```swift
+.onAppear{CrossClassify.shared.track(pageName: "PAGE_NAME_HERE", formName: "FORM_NAME_HERE")}
+.onDisappear{CrossClassify.shared.stopTrack()}
+```
+Replace `"PAGE_NAME_HERE"` and `"FORM_NAME_HERE"` with the actual names of the page and the form you want to track.
+
+**Specify Tracked Form Fields**
+
+For a text field (e.g. email), change the `TextField` struct to `TrackedTextField`. Also, you have to specify the id, content tracking status:
+
+```swift
+TrackedTextField("AS_IS",       // leave this parameter with no change
+                 text: $AS_IS), // leave this parameter with no change
+                 id: "FIELD_NAME_HERE",
+                 trackContent: false,
+                 cc: CrossClassify.shared)
+```
+If the text field doesn't contain a private information (e.g. password), change the second function input to `true`. Supported SwiftUI fields in the CrossClassify SDK are `TextField`, `SecureField`, `DatePicker`, ``Picker``, `Toggle`, `Stepper`, and `Slider`. For all field types, you just need to add `Tracked` prefix to the field name (e.g. `TrackedStepper`)
+
+**Specify the Form Submission Button**
+
+Add the following code inside the `action` parameter of the button:
+
+```swift
+CrossClassify.shared.submit()
+```
+#### Step 5.2: `UIKit` pages
+**Specify Page Name and Form Name**
+
+Fo each page which contains a form (e.g. signup, login), add the following code in the `viewDidAppear(_:)` method if the page contains a form:
+```swift
+CrossClassify.shared.track(pageName: "PAGE_NAME_HERE", formName: "FORM_NAME_HERE", view: view)
+```
+Also, add the following code in the `viewDidDissappear(_:)` method: 
+```swift
+CrossClassify.shared.stopTrack()
+```
+Replace `"PAGE_NAME_HERE" `and `"FORM_NAME_HERE"` with the actual name of the page and the form you want to track.
+
+**Specify Tracked Form Fields**
+
+1.  For a text field (e.g. email), change the `UITextField` class to `TrackedUITextField` and its module to `CrossClassify`.
+
+2.  In the Attributes Inspector, add a new User Defined Runtime Attribute with Key Path `id` and set its value to the id of the textfield, for example: `username`. Also, if the text field doesn't contain a private information (e.g. password), add another string key path `includeContent`.
+
+With these steps, you have successfully added a TrackedUITextField to your ViewController and set its formName and id attributes. Repeat this process for any additional fields in your form. Supported UIKit fields in the CrossClassify SDK are `UITextField`, `UIDatePicker`, `UISegmentedControl`, `UIPickerView`, `UISwitch` and `UISlider`.
+
+**Specify the Form Submission Button**
+
+Change the `UIButton` class to `TrackedUIButton` and its module to `CrossClassify`.
+
+
+## Requirements of Fraud Detection Sevices
+
+Account Opening Service:
+
+* Valid `SiteId` and `apiKey` (from CrossClassify account)
+* In the `CrossClassify.track` function, the `formName` must contain the `signup` substring (e.g. `signupFrom`).
+* In the email field, the `id` must contain the `email` substring.
+* In the email field, the `trackContent` must be `True`.
+* In the view of signup form, the form submit button must be specified (in the framework's own way).
+
+Account Takeover Service:
+
+* Valid `SiteId` and `apiKey` (from CrossClassify account)
+* In the `CrossClassify.track` function, the `formName` must contain the `login` substring (e.g. `loginFrom`).
+* In the email field, the `id` must contain the `email` substring.
+* In the email field, the `trackContent` must be `True`.
+* In the view of login form, the form submit button must be specified (in the framework's own way).
+
+
+## A Simple SwiftUI Example
+In this example, we show the changes which made in a simple SwiftUI application, before and after applying integration steps. The `CrossClassifyInstance.swift` is a new file, and the `LoginView.swift` is an existing file:
+### CrossClassifyInstance.swift
+```diff
++   import CrossClassify
++
++   extension CrossClassify {
++       public static let shared = CrossClassify(siteId: "1", apiKey: "GOTOappDOTcrossclassifyDOTcom")
++   }
+
+```
+
+### LoginView.swift
+
+```diff
+    import SwiftUI
++   import CrossClassify
+
+    struct LoginView: View {
+
+        @State var emailAddress: String = ""
+        @State var password: String = ""
+
+        var body: some View {
+            
+            VStack {
+-               TextField(
++               TrackedTextField(
+                    "user@domain.com", 
+                    text: $emailAddress),
++                   id: "email", trackContent: true, cc: CrossClassify.shared
+                )
+-               SecureField(
++               TrackedSecureField(
+                    "Enter a password", 
+                    text: $password),
++                   id: "password", cc: CrossClassify.shared
+                )
+
+                Button("Sign In", action: {
++                       CrossClassify.shared.submit()
+                        ...
+                        }
+                    )
+                ...
+            }
++           .onAppear{CrossClassify.shared.track(pageName: "signin", formName: "login")}
++           .onDisappear{CrossClassify.shared.stopTrack()}
+        }
+
+    }
+
+```
+
+## A Simple UIKit Example
+In this example, we show the changes which made in a simple UIKit application, before and after applying integration steps. The `CrossClassifyInstance.swift` is a new file. Also, `LoginViewController.swift` and `Login.storyboard` are existing files:
+
+### CrossClassifyInstance.swift
+```diff
++   import CrossClassify
++
++   extension CrossClassify {
++       public static let shared = CrossClassify(siteId: "1", apiKey: "GOTOappDOTcrossclassifyDOTcom")
++   }
+
+```
+### LoginViewController.swift
+
+```diff
+    import UIKit
++   import CrossClassify
+
+    class LoginViewController: UIViewController {
+
+        override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
++           CrossClassify.shared.track(pageName: "login", formName: "login", view: view)
+            ...
+        }
+        
+        override func viewDidDisappear(_ animated: Bool) {
+            super.viewDidDisappear(animated)
++           CrossClassify.shared.stopTrack()
+            ...
+        }
+    }
+```
+
+### Login.storyboard
+
+```diff
+<?xml version="1.0" encoding="UTF-8"?>
+<document ...>
+    ...
+    <scenes>
+        <!--View Controller-->
+        <scene ...>
+            <objects>
+                <viewController ...>
+                    <view ...>
+                        ...
+                        <subviews>
+                            ...
+
+                            <!-- The username textfield with content tracking -->
+                            <textField placeholder="Username"
++                           customClass="TrackedUITextField" customModule="CrossClassify"
+                            ... >
+                                ...
++                               <userDefinedRuntimeAttributes>
++                                   <userDefinedRuntimeAttribute type="string" keyPath="id" value="username"/>
++                                   <userDefinedRuntimeAttribute type="string" keyPath="includeContent" value=""/>
++                               </userDefinedRuntimeAttributes>
+                            </textField>
+                            
+                            <!-- The username textfield without content tracking -->
+                            <textField placeholder="Password"
++                           customClass="TrackedUITextField" customModule="CrossClassify"
+                            ... >
+                                ...
++                               <userDefinedRuntimeAttributes>
++                                   <userDefinedRuntimeAttribute type="string" keyPath="id" value="password"/
++                               </userDefinedRuntimeAttributes>
+                            </textField>
+
+                            <!-- The form submission button -->
+                            <button
++                           customClass="TrackedUIButton" customModule="CrossClassify"
+                            ... >
+                                ...
+                            </button>
+
+                        </subviews>
+                       ...
+                    </view>
+                </viewController>
+                ...
+            </objects>
+            ...
+        </scene>
+    </scenes>
+    ...
+</document>
+
+```
