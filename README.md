@@ -27,11 +27,11 @@ The CrossClassify SDK for iOS apps, with two integrated examples:
 
 To make it easy for you to get started with crossclassify SDK, here's the list of next steps:
 
-1. [Install the CrossClassify SDK](https://github.com/crossclassify/2.xc-sdk-ios/#1install-the-crossclassify-sdk)
-2. [Import the CrossClassify module](https://github.com/crossclassify/xc-sdk-ios/#2import-the-crossclassify-module)
-3. [Initialize the CrossClassify object](https://github.com/crossclassify/xc-sdk-ios/#3initialize-the-crossclassify-object)
-4. [Track pages without any form](https://github.com/crossclassify/xc-sdk-ios/#4track-pages-without-any-form)
-5. [ Track pages containing a form](https://github.com/crossclassify/xc-sdk-ios/#5track-pages-with-a-from)
+1. [Install the CrossClassify SDK](https://github.com/crossclassify/xc-sdk-ios/#step-1-install-the-crossclassify-sdk)
+2. [Import the CrossClassify module](https://github.com/crossclassify/xc-sdk-ios/#step-2-import-the-crossclassify-module)
+3. [Initialize the CrossClassify object](https://github.com/crossclassify/xc-sdk-ios/#step-3-initialize-the-crossclassify-object)
+4. [Track pages without any form](https://github.com/crossclassify/xc-sdk-ios/#step-4-track-pages-without-any-form)
+5. [ Track pages containing a form](https://github.com/crossclassify/xc-sdk-ios/#step-5-track-pages-containing-a-form)
 
 
 ### Step 1: Install the CrossClassify SDK
