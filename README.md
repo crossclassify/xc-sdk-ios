@@ -82,7 +82,7 @@ CrossClassify.shared.track(pageName: "PAGE_NAME_HERE")
 ```
 Replace "PAGE_NAME_HERE" with the actual name of the page you want to track.
 
-Also, add the following code in the `viewDidDissappear(_:)` method: 
+Also, add the following code in the `viewDidDisappear(_:)` method: 
 ```swift
 CrossClassify.shared.stopTrack()
 ```
@@ -134,7 +134,7 @@ Fo each page which contains a form (e.g. signup, login), add the following code 
 ```swift
 CrossClassify.shared.track(pageName: "PAGE_NAME_HERE", formName: "FORM_NAME_HERE", view: view)
 ```
-Also, add the following code in the `viewDidDissappear(_:)` method: 
+Also, add the following code in the `viewDidDisappear(_:)` method: 
 ```swift
 CrossClassify.shared.stopTrack()
 ```
@@ -158,7 +158,7 @@ Change the `UIButton` class to `TrackedUIButton` and its module to `CrossClassif
 Account Opening Service:
 
 * Valid `SiteId` and `apiKey` (from CrossClassify account)
-* In the `CrossClassify.track` function, the `formName` must contain the `signup` substring (e.g. `signupFrom`).
+* In the `track` function, the `formName` must contain the `signup` substring (e.g. `signupFrom`).
 * In the email field, the `id` must contain the `email` substring.
 * In the email field, the `trackContent` must be `True`.
 * In the view of signup form, the form submit button must be specified (in the framework's own way).
@@ -166,7 +166,7 @@ Account Opening Service:
 Account Takeover Service:
 
 * Valid `SiteId` and `apiKey` (from CrossClassify account)
-* In the `CrossClassify.track` function, the `formName` must contain the `login` substring (e.g. `loginFrom`).
+* In the `track` function, the `formName` must contain the `login` substring (e.g. `loginFrom`).
 * In the email field, the `id` must contain the `email` substring.
 * In the email field, the `trackContent` must be `True`.
 * In the view of login form, the form submit button must be specified (in the framework's own way).
