@@ -12,20 +12,20 @@ The CrossClassify SDK for iOS apps, with two integrated examples:
 
 ## Setup Example Apps locally
 1.  Clone or download the project
-2.  Run terminal on the project folder
+2.  Run the terminal on the project folder
 3.  ```pod install```
 4.  Open .xcworkspace file
 5.  Copy the `GoogleService-Info.plist` file to these paths:
     - ./Example/FirebaseSwiftUI/FirebaseSwiftUI
     - ./Example/FirebaseUIKit/FirebaseUIKit
-6.  Change the `siteId` and `apiKey` of crossclassify instances places in:
+6.  Change the `siteId` and `apiKey` of CrossClassify instances placed in:
     - ./Example/FirebaseSwiftUI/FirebaseSwiftUI/CrossClassifyInstance.swift
     - ./Example/FirebaseUIKit/FirebaseUIKit/CrossClassifyInstance.swift
 6.  Build and run (FirebaseSwiftUI or FirebaseUIKit target).
 
 ## SDK Integration Guide
 
-To make it easy for you to get started with crossclassify SDK, here's the list of next steps:
+To make it easy for you to get started with CrossClassify SDK, here's the list of the next steps:
 
 1. [Install the CrossClassify SDK](https://github.com/crossclassify/xc-sdk-ios/#step-1-install-the-crossclassify-sdk)
 2. [Import the CrossClassify module](https://github.com/crossclassify/xc-sdk-ios/#step-2-import-the-crossclassify-module)
@@ -65,7 +65,7 @@ extension CrossClassify {
 This creates a static constant named `shared` that is an instance of the `CrossClassify` class initialized with your site ID and API key.
 
 ### Step 4: Track pages without any form 
-Fo each page which contains no form (e.g. home page) do following instruction based on the framework. See step 4.1 and 4.2 for SwiftUI and UIKit versions respecitively. In both versions, you must specify **the page name**.
+For each page that contains no form (e.g. home page) do the following instruction based on the framework. See steps 4.1 and 4.2 for SwiftUI and UIKit versions respectively. In both versions, you must specify **the page name**.
 
 #### Step 4.1: `SwiftUI` pages
 Call the following functions from the `body` variable of the `view` struct:
@@ -88,7 +88,7 @@ CrossClassify.shared.stopTrack()
 ```
 
 ### Step 5: Track pages containing a form 
-Fo each page which contains a form (e.g. signup, login) do the following instructions based on the framework. See step 5.1 and 5.2 for SwiftUI and UIKit versions respecitively. In both versions, you must specify the following information:
+For each page that contains a form (e.g. signup, login) do the following instructions based on the framework. See steps 5.1 and 5.2 for SwiftUI and UIKit versions respectively. In both versions, you must specify the following information:
 
 * **The Page Name** (a unique name for the page, e.g. `loginPage`, `signupPage`, and `updateProfilePage`)
 * **The Form Name** (a unique name for the form, e.g. `login`, `singup`, and `updateProfile`)
@@ -109,7 +109,7 @@ Replace `"PAGE_NAME_HERE"` and `"FORM_NAME_HERE"` with the actual names of the p
 
 **Specify Tracked Form Fields**
 
-For a text field (e.g. email), change the `TextField` struct to `TrackedTextField`. Also, you have to specify the id, content tracking status:
+For a text field (e.g. email), change the `TextField` struct to `TrackedTextField`. Also, you have to specify the id and content tracking status:
 
 ```swift
 TrackedTextField("AS_IS",       // leave this parameter with no change
@@ -118,7 +118,7 @@ TrackedTextField("AS_IS",       // leave this parameter with no change
                  trackContent: false,
                  cc: CrossClassify.shared)
 ```
-If the text field doesn't contain a private information (e.g. password), change the second function input to `true`. Supported SwiftUI fields in the CrossClassify SDK are `TextField`, `SecureField`, `DatePicker`, ``Picker``, `Toggle`, `Stepper`, and `Slider`. For all field types, you just need to add `Tracked` prefix to the field name (e.g. `TrackedStepper`)
+If the text field doesn't contain private information (e.g. password), change the second function input to `true`. Supported SwiftUI fields in the CrossClassify SDK are `TextField`, `SecureField`, `DatePicker`, ``Picker``, `Toggle`, `Stepper`, and `Slider`. For all field types, simply add the `Tracked` prefix to the field name (e.g. `TrackedStepper`)
 
 **Specify the Form Submission Button**
 
@@ -130,7 +130,7 @@ CrossClassify.shared.submit()
 #### Step 5.2: `UIKit` pages
 **Specify Page Name and Form Name**
 
-Fo each page which contains a form (e.g. signup, login), add the following code in the `viewDidAppear(_:)` method if the page contains a form:
+For each page that contains a form (e.g. signup, login), add the following code in the `viewDidAppear(_:)` method if the page contains a form:
 ```swift
 CrossClassify.shared.track(pageName: "PAGE_NAME_HERE", formName: "FORM_NAME_HERE", view: view)
 ```
@@ -144,9 +144,9 @@ Replace `"PAGE_NAME_HERE" `and `"FORM_NAME_HERE"` with the actual name of the pa
 
 1.  For a text field (e.g. email), change the `UITextField` class to `TrackedUITextField` and its module to `CrossClassify`.
 
-2.  In the Attributes Inspector, add a new User Defined Runtime Attribute with Key Path `id` and set its value to the id of the textfield, for example: `username`. Also, if the text field doesn't contain a private information (e.g. password), add another string key path `includeContent`.
+2.  In the Attributes Inspector, add a new User Defined Runtime Attribute with Key Path `id` and set its value to the id of the text field (e.g. `password`). Also, if the text field doesn't contain private information (e.g. `username`), add another string attribute with Key Path `includeContent` and the empty value.
 
-With these steps, you have successfully added a TrackedUITextField to your ViewController and set its formName and id attributes. Repeat this process for any additional fields in your form. Supported UIKit fields in the CrossClassify SDK are `UITextField`, `UIDatePicker`, `UISegmentedControl`, `UIPickerView`, `UISwitch` and `UISlider`.
+With these steps, you have successfully added a TrackedUITextField to your ViewController and set its formName and id attributes. Repeat this process for any additional fields in your form. Supported UIKit fields in the CrossClassify SDK are `UITextField`, `UIDatePicker`, `UISegmentedControl`, `UIPickerView`, `UISwitch`, and `UISlider`. For all field types, simply add the `Tracked` prefix to the field name (e.g. `TrackedUIDatePicker`)
 
 **Specify the Form Submission Button**
 
@@ -161,7 +161,7 @@ Account Opening Service:
 * In the `track` function, the `formName` must contain the `signup` substring (e.g. `signupFrom`).
 * In the email field, the `id` must contain the `email` substring.
 * In the email field, the `trackContent` must be `True`.
-* In the view of signup form, the form submit button must be specified (in the framework's own way).
+* In the signup form view, the form submission button must be specified.
 
 Account Takeover Service:
 
@@ -169,11 +169,11 @@ Account Takeover Service:
 * In the `track` function, the `formName` must contain the `login` substring (e.g. `loginFrom`).
 * In the email field, the `id` must contain the `email` substring.
 * In the email field, the `trackContent` must be `True`.
-* In the view of login form, the form submit button must be specified (in the framework's own way).
+* In the login form view, the form submission button must be specified.
 
 
 ## A Simple SwiftUI Example
-In this example, we show the changes which made in a simple SwiftUI application, before and after applying integration steps. The `CrossClassifyInstance.swift` is a new file, and the `LoginView.swift` is an existing file:
+In this example, we show the changes made in a simple SwiftUI application, before and after applying the integration steps. The `CrossClassifyInstance.swift` is a new file, and the `LoginView.swift` is an existing file:
 ### CrossClassifyInstance.swift
 ```diff
 +   import CrossClassify
@@ -227,7 +227,7 @@ In this example, we show the changes which made in a simple SwiftUI application,
 ```
 
 ## A Simple UIKit Example
-In this example, we show the changes which made in a simple UIKit application, before and after applying integration steps. The `CrossClassifyInstance.swift` is a new file. Also, `LoginViewController.swift` and `Login.storyboard` are existing files:
+In this example, we show the changes made in a simple UIKit application, before and after applying the integration steps. The `CrossClassifyInstance.swift` is a new file. Also, `LoginViewController.swift` and `Login.storyboard` are existing files:
 
 ### CrossClassifyInstance.swift
 ```diff
