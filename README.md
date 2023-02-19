@@ -1,7 +1,7 @@
 # CrossClassify iOS SDK
 The CrossClassify SDK for iOS apps, with two integrated examples:
-* [ios-firebase-example](https://github.com/angelmtzr/ios-firebase-example): a simple UIKit app for login/signup using Firebase Auth
-* [FirebaseLogin](https://github.com/Balaviknesh/iOS-SwiftUI-Firebase-Login-Example): a simple SwiftUI app for login/signup using Firebase Auth
+* [FirebaseUIKit](https://github.com/angelmtzr/ios-firebase-example): a simple UIKit app for login/signup using Firebase Authentication
+* [FirebaseSwiftUI](https://github.com/Balaviknesh/iOS-SwiftUI-Firebase-Login-Example): a simple SwiftUI app for login/signup using Firebase Authentication
 
 ## Prerequisites
 
