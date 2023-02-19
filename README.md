@@ -1,7 +1,7 @@
 # CrossClassify iOS SDK
 The CrossClassify SDK for iOS apps, with two integrated examples:
-* [FirebaseUIKit](https://github.com/angelmtzr/ios-firebase-example): a simple UIKit app for login/signup using Firebase Authentication
 * [FirebaseSwiftUI](https://github.com/Balaviknesh/iOS-SwiftUI-Firebase-Login-Example): a simple SwiftUI app for login/signup using Firebase Authentication
+* [FirebaseUIKit](https://github.com/angelmtzr/ios-firebase-example): a simple UIKit app for login/signup using Firebase Authentication
 
 ## Prerequisites
 
@@ -16,12 +16,12 @@ The CrossClassify SDK for iOS apps, with two integrated examples:
 3.  ```pod install```
 4.  Open .xcworkspace file
 5.  Copy the `GoogleService-Info.plist` file to these paths:
-    - ./Example/firebaseLogin/firebaseLogin
-    - ./Example/ios-firebase-example/ios-firebase-example
+    - ./Example/FirebaseSwiftUI/FirebaseSwiftUI
+    - ./Example/FirebaseUIKit/FirebaseUIKit
 6.  Change the `siteId` and `apiKey` of crossclassify instances places in:
-    - ./Example/firebaseLogin/firebaseLogin/CrossClassifyInstance.swift
-    - ./Example/ios-firebase-example//ios-firebase-example//CrossClassifyInstance.swift
-6.  Build and run (FirebaseLogin or firebaseUIKit target).
+    - ./Example/FirebaseSwiftUI/FirebaseSwiftUI/CrossClassifyInstance.swift
+    - ./Example/FirebaseUIKit/FirebaseUIKit/CrossClassifyInstance.swift
+6.  Build and run (FirebaseSwiftUI or FirebaseUIKit target).
 
 ## SDK Integration Guide
 
