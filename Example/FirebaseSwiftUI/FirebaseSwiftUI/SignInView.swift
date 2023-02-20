@@ -42,12 +42,6 @@ struct SignInView: View {
     @State private var showPasswordAlert = false
     @State var errorText: String = ""
     
-    @State private var selection = 0
-    @State private var birthday = Date()
-    @State private var bool = false
-    @State private var age: Double = 28
-    @State private var count = 1
-    
     var onDismiss: () -> ()
     
     var verifyEmailAlert: Alert {
@@ -90,7 +84,6 @@ struct SignInView: View {
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .topLeading)
                 
                 TrackedSecureField("Enter a password", text: $password, id: "password", cc: CrossClassify.shared)
-//                MyPasswordField(text: password)
 
                 Button("Sign In", action: {
                     CrossClassify.shared.submit()

@@ -6,14 +6,14 @@ struct Metadata {
     var _trackFocus: Bool
     var _trackDelete: Bool
     
-    // filled if _trackFocus == true
+    // for _trackFocus == true
     var _isEditing: Bool = false
     var _timeSpentEditing: Double = 0
     var _latestEditingStartedAt: Double? = nil
     var _firstEditingStartedAt: Double? = nil
     var _isChangedSinceLastEditing: Bool = false
     
-    // filled if _trackDelete == true
+    // for _trackDelete == true
     var _textLen: Int = 0
     
     var timeSpentBeforeEditing: Double? = nil

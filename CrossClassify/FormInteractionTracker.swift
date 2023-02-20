@@ -8,11 +8,9 @@ public class FormInteractionTracker {
     var formTrack: FormTrack? = nil
     
     var senderTimer: Timer? = nil
-    // var logTimer: Timer? = nil
     
     internal init(_ matomoTracker: MatomoTracker) {
         self.matomoTracker = matomoTracker
-//        self.startLogging()
     }
     
     internal func track(formName: String, view: UIView?, pageviewId: String){
@@ -20,13 +18,11 @@ public class FormInteractionTracker {
         if view != nil {
             formTrack.retrieveFields(in: view!)
         }
-//        formTrack.startTracking()
         startSending()
         self.formTrack = formTrack
     }
     
     internal func stopTrack() {
-//        formTrack?.stopTracking()
         stopSending()
         formTrack = nil
     }
@@ -50,7 +46,6 @@ public class FormInteractionTracker {
         
         var items: [FormField] = []
         for (name, field) in formTrack!.fields {
-    //        items.append(FormField(fa_fn: key, fa_cn: value.field.wrappedValue as? String))
             items.append(FormField(fa_fn: name,
                                    fa_cn: (field.trackContent ? field.content : nil),
                                    fa_fts: field.timeSpentEditing != nil ? Int(field.timeSpentEditing!) : nil,
@@ -59,7 +54,7 @@ public class FormInteractionTracker {
                                    fa_fch: field.numChanges,
                                    fa_ff: field.numFocus,
                                    fa_fd: field.numDeletes,
-                                   fa_cu: field.numCursor, //TODO: do
+                                   fa_cu: field.numCursor,
                                    fa_ft: field.fieldType, // web-sdk: n = ["password", "text", "url", "tel", "email", "search", "", null] or ios: UITextContentType
                                    fa_fs: field.content?.count))
         }
@@ -81,14 +76,4 @@ public class FormInteractionTracker {
         matomoTracker.dispatch()
         print("\(formTrack?.toString() ?? "formTrack is nil")")
     }
-    
-//    internal func startLogging() {
-//        logTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {_ in
-//            print("\(formTrack?.toString() ?? "formTrack is nil")")
-//        }
-//    }
-//
-//    internal func stopLogging() {
-//        logTimer?.invalidate()
-//    }
 }

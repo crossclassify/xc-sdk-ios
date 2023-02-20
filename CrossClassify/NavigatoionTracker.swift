@@ -20,16 +20,3 @@ public class NavigationTracker {
         matomoTracker.dispatch()
     }
 }
-
-//extension View {
-//    func trackView(pageName: [String]) -> some View {
-//        return self.onAppear { MatomoTracker.shared.track(view: view) }
-//    }
-//}
-
-//extension View {
-//    func track(view: [String]) -> any View {
-//        MatomoTracker.shared.track(view: view)
-//        return self
-//    }
-//}

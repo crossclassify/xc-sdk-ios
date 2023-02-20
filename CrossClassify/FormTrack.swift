@@ -19,8 +19,6 @@ internal class FormTrack {
     var _formviewAt: TimeInterval = NSDate().timeIntervalSince1970
     var timeToFirstSubmit: TimeInterval = 0.0
     
-//    private static var trackingTimer: Timer?
-    
     func retrieveFields(in view: UIView) {
         
         for subview in view.subviews {
@@ -35,7 +33,7 @@ internal class FormTrack {
     }
     
     @objc func pressed() {
-        father.sendForm() //TODO: do place it to right class
+        father.sendForm()
     }
     
     
@@ -96,51 +94,6 @@ internal class FormTrack {
             return timeSpentBeforeEditing != nil
         }
     }
-    
-    
-//    func startTracking() {
-//        let UNIT: Double = 0.1
-//        trackingTimer = Timer.scheduledTimer(withTimeInterval: UNIT, repeats: true) { [self, UNIT] (trackingTimer) in
-//            var sumNumChanges: Int = 0
-//            for (name, field) in fields {
-//                if field.isEditing {
-//
-//                    sumNumChanges += field.numChanges
-//
-//                    if field.numChanges == 0 {
-//                        fields[name]?.timeSpentBeforeEditing += UNIT
-//                    }
-//                    fields[name]?.timeSpentEditing += UNIT
-//
-//                    if lastEditedFieldId != field.id {
-//                        fields[name]?.numFocus += 1
-//                        fields[name]?.changeSinceLastFocus = false
-//                        fields[name]?.initialContent = field.content!
-//                    }
-//
-//                    if !field.changeSinceLastFocus && field.content != field.initialContent {
-//                        fields[name]?.numChanges += 1
-//                        fields[name]?.changeSinceLastFocus = true
-//                    }
-//
-//
-//                    if firstEditedFieldId == nil {
-//                        firstEditedFieldId = field.id
-//                    }
-//                    lastEditedFieldId = field.id
-//
-//                }
-//            }
-//            if sumNumChanges == 0 {
-//                timeSpentBeforeEditing += UNIT
-//            }
-//            timeSpentInForm += UNIT
-//        }
-//    }
-    
-//    internal func stopTracking() {
-//        trackingTimer?.invalidate()
-//    }
     
     internal func toString() -> String {
         var string = "Form ID: \(formviewId)\n"

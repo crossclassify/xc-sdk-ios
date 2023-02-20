@@ -67,11 +67,11 @@ struct SignUpView: View {
                 
                 TrackedSecureField("Enter a password", text: $password, id: "password", cc: CrossClassify.shared)
                     
-                    Toggle(isOn: $agreeCheck)
-//                    Toggle(isOn: $agreeCheck.track("signup", "agreeCheck", true))
-                    {
-                        Text("Agree to the Terms and Condition").fontWeight(.thin)
-                    }.frame(minWidth: 0, maxWidth: .infinity, alignment: .topLeading)
+                   TrackedToggle("Agree to the Terms and Condition",
+                                 isOn: $agreeCheck, 
+                                 id: "agreeCheck", 
+                                 trackContent: Bool, 
+                                 cc: CrossClassify).frame(minWidth: 0, maxWidth: .infinity, alignment: .topLeading)
                 
                     Button(action: {
                         

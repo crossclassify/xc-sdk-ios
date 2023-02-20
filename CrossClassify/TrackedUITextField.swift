@@ -1,14 +1,12 @@
 import Foundation
 import UIKit
 
-class TrackedUITextField: UITextField, UITextFieldDelegate, TrackedField { //TODO: do other field types
+class TrackedUITextField: UITextField, UITextFieldDelegate, TrackedField {
     
     @IBInspectable var id: String?
-    @IBInspectable var includeContent: String? //TODO: do change to bool or nil var
+    @IBInspectable var includeContent: String? //TODO: change to bool or nil var
     
     var metadata = Metadata(trackFocus: true, trackDelete: true)
-    
-//    var initialContent: String?
     
     override func awakeFromNib() {
         super.awakeFromNib()

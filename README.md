@@ -3,27 +3,29 @@ The CrossClassify SDK for iOS apps, with two integrated examples:
 * [FirebaseSwiftUI](https://github.com/Balaviknesh/iOS-SwiftUI-Firebase-Login-Example): a simple SwiftUI app for login/signup using Firebase Authentication
 * [FirebaseUIKit](https://github.com/angelmtzr/ios-firebase-example): a simple UIKit app for login/signup using Firebase Authentication
 
-## Prerequisites
+See Section [Setup Example Apps Locally](https://github.com/crossclassify/xc-sdk-ios/#setup-example-apps-locally) to run the complete example apps, or navigate to Section [SDK Integration Guide](https://github.com/crossclassify/xc-sdk-ios/#sdk-integration-guide) to easily integrate CrossClassify SDK with your iOS app.
+
+### **Prerequisites**
 
 -   Xcode
 -   Cocoapods
--   A CrossClassify account
+-   *A CrossClassify account*
 -   A Firebase account (only for example apps)
 
-## Setup Example Apps locally
+### **Setup Example Apps locally**
 1.  Clone or download the project
 2.  Run the terminal on the project folder
 3.  ```pod install```
 4.  Open .xcworkspace file
-5.  Copy the `GoogleService-Info.plist` file to these paths:
+5.  Copy the `GoogleService-Info.plist` (from your Firebase project) file to these paths:
     - ./Example/FirebaseSwiftUI/FirebaseSwiftUI
     - ./Example/FirebaseUIKit/FirebaseUIKit
-6.  Change the `siteId` and `apiKey` of CrossClassify instances placed in:
+6.  Change the `siteId` and `apiKey` (from your [CrossClassify](app.crossclassify.com) project) in CrossClassify instances placed in:
     - ./Example/FirebaseSwiftUI/FirebaseSwiftUI/CrossClassifyInstance.swift
     - ./Example/FirebaseUIKit/FirebaseUIKit/CrossClassifyInstance.swift
 6.  Build and run (FirebaseSwiftUI or FirebaseUIKit target).
 
-## SDK Integration Guide
+## **SDK Integration Guide**
 
 To make it easy for you to get started with CrossClassify SDK, here's the list of the next steps:
 
@@ -34,7 +36,7 @@ To make it easy for you to get started with CrossClassify SDK, here's the list o
 5. [ Track pages containing a form](https://github.com/crossclassify/xc-sdk-ios/#step-5-track-pages-containing-a-form)
 
 
-### Step 1: Install the CrossClassify SDK
+### **Step 1:** Install the CrossClassify SDK
 
 1.  Open a terminal window and navigate to the root directory of your project.
 
@@ -47,14 +49,14 @@ To make it easy for you to get started with CrossClassify SDK, here's the list o
 4.  Save the `Podfile` and run the following command to install the CrossClassify SDK:
 ```pod install```
 
-### Step 2: Import the CrossClassify module
+### **Step 2:** Import the CrossClassify module
 
 In the file where you want to use the CrossClassify SDK, add the following line at the top:
 ```swift
 import CrossClassify
 ```
 
-### Step 3: Initialize the CrossClassify object
+### **Step 3:** Initialize the CrossClassify object
 
 Add the following code to your app, replacing "SITE_ID_HERE" and "API_KEY_HERE" with your site ID and API key:
 ```swift
@@ -64,93 +66,89 @@ extension CrossClassify {
 ```
 This creates a static constant named `shared` that is an instance of the `CrossClassify` class initialized with your site ID and API key.
 
-### Step 4: Track pages without any form 
-For each page that contains no form (e.g. home page) do the following instruction based on the framework. See steps 4.1 and 4.2 for SwiftUI and UIKit versions respectively. In both versions, you must specify **the page name**.
+### **Step 4:** Track pages without any form 
+For each page that contains no form (e.g. home page) do the following instruction. Based on your selected framework, see steps 4.1 and 4.2 for SwiftUI and UIKit versions respectively. In both versions, you must specify **the page name**.
 
-#### Step 4.1: `SwiftUI` pages
-Call the following functions from the `body` variable of the `view` struct:
-```swift
-.onAppear{CrossClassify.shared.track(pageName: "PAGE_NAME_HERE")} 
-.onDisappear{CrossClassify.shared.stopTrack()}
-```
-Replace "PAGE_NAME_HERE" with the actual name of the page you want to track.
+#### **Step 4.1:** `SwiftUI` pages
+-   Add the following functions in the `body` variable of the `view` struct, repacing the `"PAGE_NAME_HERE"` with the actual name of the page you want to track:
+    ```swift
+    .onAppear{CrossClassify.shared.track(pageName: "PAGE_NAME_HERE")} 
+    .onDisappear{CrossClassify.shared.stopTrack()}
+    ```
 
-#### Step 4.2: `UIKit` pages
-Add the following code in the `viewDidAppear(_:)` method if the page contains a form:
-```swift
-CrossClassify.shared.track(pageName: "PAGE_NAME_HERE") 
-```
-Replace "PAGE_NAME_HERE" with the actual name of the page you want to track.
+#### **Step 4.2:** `UIKit` pages
+-   Add the following code in the `viewDidAppear(_:)`, repacing the `"PAGE_NAME_HERE"` with the actual name of the page you want to track:
+    ```swift
+    CrossClassify.shared.track(pageName: "PAGE_NAME_HERE") 
+    ```
+-    Add the following code in the `viewDidDisappear(_:)` method: 
+        ```swift
+        CrossClassify.shared.stopTrack()
+        ```
 
-Also, add the following code in the `viewDidDisappear(_:)` method: 
-```swift
-CrossClassify.shared.stopTrack()
-```
+### **Step 5:** Track pages containing a form 
+For each page that contains a form (e.g. signup, login) do the following instructions. Based on your selected framework, see steps 5.1 and 5.2 for SwiftUI and UIKit versions respectively. In both versions, you must specify the following information:
 
-### Step 5: Track pages containing a form 
-For each page that contains a form (e.g. signup, login) do the following instructions based on the framework. See steps 5.1 and 5.2 for SwiftUI and UIKit versions respectively. In both versions, you must specify the following information:
-
-* **The Page Name** (a unique name for the page, e.g. `loginPage`, `signupPage`, and `updateProfilePage`)
-* **The Form Name** (a unique name for the form, e.g. `login`, `singup`, and `updateProfile`)
+* **The Page Name** (e.g. `loginPage`, `signupPage`, and `updateProfilePage`)
+* **The Form Name** (e.g. `login`, `singup`, and `updateProfile`)
 * For each Field in the Form:
-    * **The Field Name** (a unique name for the field in the form, e.g. `username`, `password`, and `address`)
-    * **Content Tracking Status** (whether you want to send us the content of the field)
+    * **ID** (e.g. `username`, `password`, and `address`)
+    * **Content Tracking Status** (whether you want to send us the field content. Sending field contents increases the accuracy of the fraud detection algorithm)
 * **The Submission Button**
-#### Step 5.1: `SwiftUI` pages
+#### **Step 5.1:** `SwiftUI` pages
 
-**Specify Page Name and Form Name**
+1. **Specify Page Name and Form Name**
 
-Call the following functions from the `body` variable of the `view` struct:
-```swift
-.onAppear{CrossClassify.shared.track(pageName: "PAGE_NAME_HERE", formName: "FORM_NAME_HERE")}
-.onDisappear{CrossClassify.shared.stopTrack()}
-```
-Replace `"PAGE_NAME_HERE"` and `"FORM_NAME_HERE"` with the actual names of the page and the form you want to track.
+    Call the following functions from the `body` variable of the `view` struct:
+    ```swift
+    .onAppear{CrossClassify.shared.track(pageName: "PAGE_NAME_HERE", formName: "FORM_NAME_HERE")}
+    .onDisappear{CrossClassify.shared.stopTrack()}
+    ```
+    Replace `"PAGE_NAME_HERE"` and `"FORM_NAME_HERE"` with the actual names of the page and the form you want to track.
 
-**Specify Tracked Form Fields**
+2. **Specify Tracked Form Fields**
 
-For a text field (e.g. email), change the `TextField` struct to `TrackedTextField`. Also, you have to specify the id and content tracking status:
+    For a text field (e.g. email), change the `TextField` struct to `TrackedTextField`. Also, you have to specify the id and content tracking status (`trackContent`):
 
-```swift
-TrackedTextField("AS_IS",       // leave this parameter with no change
-                 text: $AS_IS), // leave this parameter with no change
-                 id: "FIELD_NAME_HERE",
-                 trackContent: false,
-                 cc: CrossClassify.shared)
-```
-If the text field doesn't contain private information (e.g. password), change the second function input to `true`. Supported SwiftUI fields in the CrossClassify SDK are `TextField`, `SecureField`, `DatePicker`, ``Picker``, `Toggle`, `Stepper`, and `Slider`. For all field types, simply add the `Tracked` prefix to the field name (e.g. `TrackedStepper`)
+    ```swift
+    TrackedTextField("AS_IS",       // leave this parameter with no change
+                    text: $AS_IS), // leave this parameter with no change
+                    id: "FIELD_NAME_HERE",
+                    trackContent: false,
+                    cc: CrossClassify.shared)
+    ```
+    If the text field doesn't contain private information (e.g. password), change the second function input to `true`. Supported SwiftUI fields in the CrossClassify SDK are `TextField`, `SecureField`, `DatePicker`, ``Picker``, `Toggle`, `Stepper`, and `Slider`. For all field types, simply add the `Tracked` prefix to the field name (e.g. `TrackedStepper`)
 
-**Specify the Form Submission Button**
+3. **Specify the Form Submission Button**
 
-Add the following code inside the `action` parameter of the button:
+    Add the following code inside the `action` parameter of the button:
 
-```swift
-CrossClassify.shared.submit()
-```
-#### Step 5.2: `UIKit` pages
-**Specify Page Name and Form Name**
+    ```swift
+    CrossClassify.shared.submit()
+    ```
+#### **Step 5.2:** `UIKit` pages
+1. **Specify Page Name and Form Name**
+    -   add the following code in the `viewDidAppear(_:)` method if the page contains a form:
+        ```swift
+        CrossClassify.shared.track(pageName: "PAGE_NAME_HERE", formName: "FORM_NAME_HERE", view: view)
+        ```
+        Replace `"PAGE_NAME_HERE" `and `"FORM_NAME_HERE"` with the actual name of the page and the form you want to track.
+    - Add the following code in the `viewDidDisappear(_:)` method: 
+        ```swift
+        CrossClassify.shared.stopTrack()
+        ```
+    
 
-For each page that contains a form (e.g. signup, login), add the following code in the `viewDidAppear(_:)` method if the page contains a form:
-```swift
-CrossClassify.shared.track(pageName: "PAGE_NAME_HERE", formName: "FORM_NAME_HERE", view: view)
-```
-Also, add the following code in the `viewDidDisappear(_:)` method: 
-```swift
-CrossClassify.shared.stopTrack()
-```
-Replace `"PAGE_NAME_HERE" `and `"FORM_NAME_HERE"` with the actual name of the page and the form you want to track.
+2.  **Specify Tracked Form Fields**
+    - For a text field (e.g. email), change the `UITextField` class to `TrackedUITextField` and its module to `CrossClassify`.
 
-**Specify Tracked Form Fields**
+    - In the Attributes Inspector, add a new User Defined Runtime Attribute with Key Path `id` and set its value to the id of the text field (e.g. `password`). Also, if the text field doesn't contain private information (e.g. `username`), add another string attribute with Key Path `includeContent` and the empty value.
 
-1.  For a text field (e.g. email), change the `UITextField` class to `TrackedUITextField` and its module to `CrossClassify`.
+    With these steps, you have successfully added a TrackedUITextField to your ViewController and set its formName and id attributes. Repeat this process for any additional fields in your form. Supported UIKit fields in the CrossClassify SDK are `UITextField`, `UIDatePicker`, `UISegmentedControl`, `UIPickerView`, `UISwitch`, and `UISlider`. For all field types, simply add the `Tracked` prefix to the field name (e.g. `TrackedUIDatePicker`)
 
-2.  In the Attributes Inspector, add a new User Defined Runtime Attribute with Key Path `id` and set its value to the id of the text field (e.g. `password`). Also, if the text field doesn't contain private information (e.g. `username`), add another string attribute with Key Path `includeContent` and the empty value.
+3.  **Specify the Form Submission Button**
 
-With these steps, you have successfully added a TrackedUITextField to your ViewController and set its formName and id attributes. Repeat this process for any additional fields in your form. Supported UIKit fields in the CrossClassify SDK are `UITextField`, `UIDatePicker`, `UISegmentedControl`, `UIPickerView`, `UISwitch`, and `UISlider`. For all field types, simply add the `Tracked` prefix to the field name (e.g. `TrackedUIDatePicker`)
-
-**Specify the Form Submission Button**
-
-Change the `UIButton` class to `TrackedUIButton` and its module to `CrossClassify`.
+    Change the `UIButton` class to `TrackedUIButton` and its module to `CrossClassify`.
 
 
 ## Requirements of Fraud Detection Sevices

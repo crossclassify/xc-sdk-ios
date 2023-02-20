@@ -36,6 +36,6 @@ public struct TrackedSlider: TrackedField, View {
         .onAppear(perform: {Util.updateField(cc: cc, field: self)})
     }
     
-   var content: String {get {return String(value!.wrappedValue) ?? ""}} //TODO: do convert V to String
+   var content: String {get {return String(value!.wrappedValue) ?? ""}}
    var fieldType: String? {get { return "slider" }}
 }

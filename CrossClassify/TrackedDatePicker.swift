@@ -36,7 +36,7 @@ public struct TrackedDatePicker: TrackedField, View {
             selection: selection!.onChange({_ in metadata.editingChanged()}), displayedComponents: displayedComponents
         )
         .onAppear(perform: {Util.updateField(cc: cc, field: self)})
-//            .focused($isFocused).onChange(of: isFocused) { changed in if changed { editingDidBegin() } else { editingDidEnd() }} //TODO: do find focus trigger
+//            .focused($isFocused).onChange(of: isFocused) { changed in if changed { editingDidBegin() } else { editingDidEnd() }} //TODO: find focus trigger
     }
     
     var content: String {get {

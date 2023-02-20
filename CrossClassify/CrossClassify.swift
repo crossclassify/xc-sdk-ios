@@ -19,20 +19,16 @@ public final class CrossClassify {
         self.formInteractionTracker = FormInteractionTracker(matomoTracker)
          Task {
              let client = FingerprintProFactory.getInstance("nLvTePYiYEFERqTHoSZ7")
-             self.navigationTracker.matomoTracker.userId = try? await client.getVisitorId()  //TODO: Deprecated - replacing with forceVisitorId
- //            print(MatomoTracker.shared.visitorId)
+             self.navigationTracker.matomoTracker.userId = try? await client.getVisitorId()
          }
     }
     
     public func track(pageName: String, url: URL? = nil, formName: String? = nil, view: UIView? = nil) {
-//    public func track(pageName: String, url: URL? = nil, formName: String? = nil, view: UIView? = nil) -> TrackView {
         formInteractionTracker.stopTrack()
         navigationTracker.track(pageName: pageName, url: url)
         if formName != nil {
             formInteractionTracker.track(formName: formName!, view: view, pageviewId: navigationTracker.pageTrack!.pageviewId)
         }
-        
-//        return TrackView()
     }
     
     public func stopTrack() {
@@ -50,21 +46,5 @@ public final class CrossClassify {
 }
 
 extension CrossClassify {
-//    static let baseUrl: String = "https://i1uaiuond3.execute-api.ap-southeast-2.amazonaws.com"
     static let baseUrl: String = "https://api.crossclassify.com/collect"
 }
-
-
-//public struct TrackView: UIViewRepresentable {
-//
-//    public init(){
-//    }
-//
-//    public func makeUIView(context: Context) -> UIActivityIndicatorView {
-//        return UIActivityIndicatorView()
-//    }
-//
-//    public func updateUIView(_ uiView: UIActivityIndicatorView,
-//                      context: Context) {
-//    }
-//}

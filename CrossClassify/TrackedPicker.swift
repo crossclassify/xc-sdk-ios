@@ -39,6 +39,6 @@ public struct TrackedPicker<SelectionValue, Content>: TrackedField, View where S
 //        .focused($isFocused)
 //        .onChange(of: isFocused) { changed in if changed { metadata.editingDidBegin() } else { metadata.editingDidEnd() }} // TODO: find focus trigger
     }
-    var content: String {get {return selection?.wrappedValue as? String ?? ""}} //always nil, TODO: Do convert SelectionValue to string
+    var content: String {get {return selection?.wrappedValue as? String ?? ""}} //always nil, TODO: convert SelectionValue to string
     var fieldType: String? {get { return "select" }}
 }

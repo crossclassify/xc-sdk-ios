@@ -3,10 +3,6 @@ import CoreGraphics
 
 /// Represents an event of any kind.
 ///
-/// - Todo:
-///     - Add Action info
-///     - Add Content Tracking info
-///
 /// # Key Mapping:
 /// Most properties represent a key defined at: [Tracking HTTP API](https://developer.piwik.org/api-reference/tracking-api). Keys that are not supported for now are:
 ///
