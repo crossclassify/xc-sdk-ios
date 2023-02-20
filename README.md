@@ -9,7 +9,7 @@ See Section [Setup Example Apps Locally](https://github.com/crossclassify/xc-sdk
 
 -   Xcode
 -   Cocoapods
--   *A CrossClassify account*
+-   A [CrossClassify](https://app.crossclassify.com) account
 -   A Firebase account (only for example apps)
 
 ### **Setup Example Apps locally**
@@ -20,7 +20,7 @@ See Section [Setup Example Apps Locally](https://github.com/crossclassify/xc-sdk
 5.  Copy the `GoogleService-Info.plist` (from your Firebase project) file to these paths:
     - ./Example/FirebaseSwiftUI/FirebaseSwiftUI
     - ./Example/FirebaseUIKit/FirebaseUIKit
-6.  Change the `siteId` and `apiKey` (from your [CrossClassify](app.crossclassify.com) project) in CrossClassify instances placed in:
+6.  Change the `siteId` and `apiKey` (from your [CrossClassify](https://app.crossclassify.com) project) in CrossClassify instances placed in:
     - ./Example/FirebaseSwiftUI/FirebaseSwiftUI/CrossClassifyInstance.swift
     - ./Example/FirebaseUIKit/FirebaseUIKit/CrossClassifyInstance.swift
 6.  Build and run (FirebaseSwiftUI or FirebaseUIKit target).
