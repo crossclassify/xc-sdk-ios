@@ -70,8 +70,8 @@ struct SignUpView: View {
                    TrackedToggle("Agree to the Terms and Condition",
                                  isOn: $agreeCheck, 
                                  id: "agreeCheck", 
-                                 trackContent: Bool, 
-                                 cc: CrossClassify).frame(minWidth: 0, maxWidth: .infinity, alignment: .topLeading)
+                                 trackContent: true,
+                                 cc: CrossClassify.shared)
                 
                     Button(action: {
                         
