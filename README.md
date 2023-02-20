@@ -89,12 +89,14 @@ For each page that contains no form (e.g. home page) do the following instructio
 ### **Step 5:** Track pages containing a form 
 For each page that contains a form (e.g. signup, login) do the following instructions. Based on your selected framework, see steps 5.1 and 5.2 for SwiftUI and UIKit versions respectively. In both versions, you must specify the following information:
 
-* **The Page Name** (e.g. `loginPage`, `signupPage`, and `updateProfilePage`)
-* **The Form Name** (e.g. `login`, `singup`, and `updateProfile`)
-* For each Field in the Form:
-    * **ID** (e.g. `username`, `password`, and `address`)
-    * **Content Tracking Status** (whether you want to send us the field content. Sending field contents increases the accuracy of the fraud detection algorithm)
-* **The Submission Button**
+* The page name (e.g. `loginPage`, `signupPage`, and `updateProfilePage`)
+* The form name (e.g. `login`, `singup`, and `updateProfile`)
+* For each field in the form:
+    * ID (e.g. `username`, `password`, and `address`)
+    * Content tracking status (whether you want to send us the field content.)
+        > **Note**
+        > Sending field contents increases the accuracy of CorssClassify fraud detection algorithm.
+* The submission button
 #### **Step 5.1:** `SwiftUI` pages
 
 1. **Specify Page Name and Form Name**
@@ -112,10 +114,10 @@ For each page that contains a form (e.g. signup, login) do the following instruc
 
     ```swift
     TrackedTextField("AS_IS",       // leave this parameter with no change
-                    text: $AS_IS), // leave this parameter with no change
-                    id: "FIELD_NAME_HERE",
-                    trackContent: false,
-                    cc: CrossClassify.shared)
+                     text: $AS_IS), // leave this parameter with no change
+                     id: "FIELD_NAME_HERE",
+                     trackContent: false,
+                     cc: CrossClassify.shared)
     ```
     If the text field doesn't contain private information (e.g. password), change the second function input to `true`. Supported SwiftUI fields in the CrossClassify SDK are `TextField`, `SecureField`, `DatePicker`, ``Picker``, `Toggle`, `Stepper`, and `Slider`. For all field types, simply add the `Tracked` prefix to the field name (e.g. `TrackedStepper`)
 
