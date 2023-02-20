@@ -93,9 +93,9 @@ For each page that contains a form (e.g. signup, login) do the following instruc
 * The form name (e.g. `login`, `singup`, and `updateProfile`)
 * For each field in the form:
     * ID (e.g. `username`, `password`, and `address`)
-    * Content tracking status (whether you want to send us the field content.)
+    * Content tracking status (whether you want to send us the field content)
         > **Note**
-        > Sending field contents increases the accuracy of CorssClassify fraud detection algorithm.
+        > Sending field contents increases the accuracy of the CrossClassify fraud detection algorithm. Hence, content tracking is HIGHLY RECOMMENDED on all non-confidential fields.
 * The submission button
 #### **Step 5.1:** `SwiftUI` pages
 

@@ -48,9 +48,9 @@ public class FormInteractionTracker {
         for (name, field) in formTrack!.fields {
             items.append(FormField(fa_fn: name,
                                    fa_cn: (field.trackContent ? field.content : nil),
-                                   fa_fts: field.timeSpentEditing != nil ? Int(field.timeSpentEditing!) : nil,
-                                   fa_fht: field.timeSpentBeforeEditing != nil ? Int(field.timeSpentBeforeEditing!) : nil,
-                                   fa_fb: field.timeSpentEditing == 0,
+                                   fa_fts: field.timeSpentEditing != nil ? Int(field.timeSpentEditing! * 1000) : nil,
+                                   fa_fht: field.timeSpentBeforeEditing != nil ? Int(field.timeSpentBeforeEditing! * 1000) : nil,
+                                   fa_fb: field.content?.count == 0,
                                    fa_fch: field.numChanges,
                                    fa_ff: field.numFocus,
                                    fa_fd: field.numDeletes,
@@ -69,10 +69,10 @@ public class FormInteractionTracker {
                                      fa_su: (submit! ? 1 : 0),
                                      fa_ef: formTrack!.firstEditedFieldId,
                                      fa_lf: formTrack!.lastEditedFieldId,
-                                     fa_ts: Int(formTrack!.timeSpentInForm),
-                                     fa_ht: formTrack!.timeSpentBeforeEditing != nil ? Int(formTrack!.timeSpentBeforeEditing!) : nil,
+                                     fa_ts: Int(formTrack!.timeSpentInForm * 1000),
+                                     fa_ht: formTrack!.timeSpentBeforeEditing != nil ? Int(formTrack!.timeSpentBeforeEditing! * 1000) : nil,
                                      fa_st: formTrack!.isStarted ? 1 : 0,
-                                     fa_tts: Int(formTrack!.timeToFirstSubmit))
+                                     fa_tts: Int(formTrack!.timeToFirstSubmit * 1000))
         matomoTracker.dispatch()
         print("\(formTrack?.toString() ?? "formTrack is nil")")
     }
