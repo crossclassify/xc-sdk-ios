@@ -3,7 +3,7 @@ Pod::Spec.new do |spec|
   spec.version      = "1.0.0"
   spec.summary      = "A CrossClassify Tracker written in Swift for iOS apps."
   spec.homepage     = "https://github.com/crossclassify/xc-sdk-ios"
-  spec.license      = { :type => 'MIT', :file => 'LICENSE.md' }
+  spec.license      = { :type => 'Apache-2.0', :file => 'LICENSE.md' }
   spec.author       = { "Jasmine Kramer" => "jasmine.km.cc@gmail.com"}
   spec.source       = { :git => "https://github.com/crossclassify/xc-sdk-ios.git", :tag => "v#{spec.version}" }
   spec.ios.deployment_target = '13.0'
