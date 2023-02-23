@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1AE4F7BF92582B01F9E23EB5 /* Pods_example_CrossClassify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97B716BE3D4E32EA409A19B6 /* Pods_example_CrossClassify.framework */; };
 		1F092C141E224C3E00394B30 /* MatomoUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F092C131E224C3E00394B30 /* MatomoUserDefaults.swift */; };
 		1F092C161E225E0200394B30 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F092C151E225E0200394B30 /* Event.swift */; };
 		1F092C1A1E26B44500394B30 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F092C191E26B44500394B30 /* Dispatcher.swift */; };
@@ -53,6 +52,7 @@
 		D8F4FC1A2996502700B2B485 /* TrackedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F4FC192996502700B2B485 /* TrackedTextField.swift */; };
 		D8F4FC1C2996503C00B2B485 /* PageTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F4FC1B2996503C00B2B485 /* PageTrack.swift */; };
 		D8F4FC1E2996B6E000B2B485 /* TrackedUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F4FC1D2996B6E000B2B485 /* TrackedUIButton.swift */; };
+		E0B4DDCD01F36B0244B52309 /* Pods_example_CrossClassify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF09A24A7E13032049C86C7 /* Pods_example_CrossClassify.framework */; };
 		FDCA325A2093BFFB007D6B42 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FDCA32592093BFFB007D6B42 /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -79,8 +79,9 @@
 		1FDC917D1F1A65150046F506 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		1FDC917E1F1A65150046F506 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		5ACB1FAC21426FFB007C766B /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
-		8D31D60189D9B1DDCE4BE853 /* Pods-example-CrossClassify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-example-CrossClassify.release.xcconfig"; path = "Target Support Files/Pods-example-CrossClassify/Pods-example-CrossClassify.release.xcconfig"; sourceTree = "<group>"; };
-		97B716BE3D4E32EA409A19B6 /* Pods_example_CrossClassify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_example_CrossClassify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CF09A24A7E13032049C86C7 /* Pods_example_CrossClassify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_example_CrossClassify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9ED439C3F6FC16253144D57E /* Pods-example-CrossClassify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-example-CrossClassify.debug.xcconfig"; path = "Target Support Files/Pods-example-CrossClassify/Pods-example-CrossClassify.debug.xcconfig"; sourceTree = "<group>"; };
+		CB6D9B064E19717CE140EC16 /* Pods-example-CrossClassify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-example-CrossClassify.release.xcconfig"; path = "Target Support Files/Pods-example-CrossClassify/Pods-example-CrossClassify.release.xcconfig"; sourceTree = "<group>"; };
 		D80F811A2993A62800E93241 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		D80F811C2993A62800E93241 /* NavigatoionTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigatoionTracker.swift; sourceTree = "<group>"; };
 		D80F811D2993A62800E93241 /* FormInteractionTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormInteractionTracker.swift; sourceTree = "<group>"; };
@@ -106,7 +107,6 @@
 		D8F4FC192996502700B2B485 /* TrackedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackedTextField.swift; sourceTree = "<group>"; };
 		D8F4FC1B2996503C00B2B485 /* PageTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTrack.swift; sourceTree = "<group>"; };
 		D8F4FC1D2996B6E000B2B485 /* TrackedUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackedUIButton.swift; sourceTree = "<group>"; };
-		D97D9CF3F3F357DD70948A35 /* Pods-example-CrossClassify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-example-CrossClassify.debug.xcconfig"; path = "Target Support Files/Pods-example-CrossClassify/Pods-example-CrossClassify.debug.xcconfig"; sourceTree = "<group>"; };
 		FDCA32592093BFFB007D6B42 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,7 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AE4F7BF92582B01F9E23EB5 /* Pods_example_CrossClassify.framework in Frameworks */,
+				E0B4DDCD01F36B0244B52309 /* Pods_example_CrossClassify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,7 +150,7 @@
 				1FCA6D3D1DBE0B2F0033F01C /* CrossClassify */,
 				1FCA6D3C1DBE0B2F0033F01C /* Products */,
 				C68A9ED5EE0C70EB894BD198 /* Pods */,
-				43D50DF6414E04E2A648DEB7 /* Frameworks */,
+				B152B5F55C32CF01BE6C5E20 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,10 +173,10 @@
 			path = CrossClassify;
 			sourceTree = "<group>";
 		};
-		43D50DF6414E04E2A648DEB7 /* Frameworks */ = {
+		B152B5F55C32CF01BE6C5E20 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				97B716BE3D4E32EA409A19B6 /* Pods_example_CrossClassify.framework */,
+				8CF09A24A7E13032049C86C7 /* Pods_example_CrossClassify.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -184,8 +184,8 @@
 		C68A9ED5EE0C70EB894BD198 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D97D9CF3F3F357DD70948A35 /* Pods-example-CrossClassify.debug.xcconfig */,
-				8D31D60189D9B1DDCE4BE853 /* Pods-example-CrossClassify.release.xcconfig */,
+				9ED439C3F6FC16253144D57E /* Pods-example-CrossClassify.debug.xcconfig */,
+				CB6D9B064E19717CE140EC16 /* Pods-example-CrossClassify.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -293,7 +293,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1FCA6D4F1DBE0B2F0033F01C /* Build configuration list for PBXNativeTarget "CrossClassify" */;
 			buildPhases = (
-				A36C05C727850C6099409089 /* [CP] Check Pods Manifest.lock */,
+				74C02918EBAF835F530C9ED3 /* [CP] Check Pods Manifest.lock */,
 				1FCA6D381DBE0B2F0033F01C /* Headers */,
 				1FCA6D361DBE0B2F0033F01C /* Sources */,
 				1FCA6D371DBE0B2F0033F01C /* Frameworks */,
@@ -355,7 +355,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A36C05C727850C6099409089 /* [CP] Check Pods Manifest.lock */ = {
+		74C02918EBAF835F530C9ED3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -567,7 +567,7 @@
 		};
 		1FCA6D501DBE0B2F0033F01C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D97D9CF3F3F357DD70948A35 /* Pods-example-CrossClassify.debug.xcconfig */;
+			baseConfigurationReference = 9ED439C3F6FC16253144D57E /* Pods-example-CrossClassify.debug.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -594,7 +594,7 @@
 		};
 		1FCA6D511DBE0B2F0033F01C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D31D60189D9B1DDCE4BE853 /* Pods-example-CrossClassify.release.xcconfig */;
+			baseConfigurationReference = CB6D9B064E19717CE140EC16 /* Pods-example-CrossClassify.release.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
