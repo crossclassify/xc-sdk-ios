@@ -42,6 +42,6 @@ public struct TrackedDatePicker: TrackedField, View {
     var content: String {get {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YY/MM/dd HH:mm:ss"
-        return dateFormatter.string(from: selection!.wrappedValue) ?? ""}}
+        return dateFormatter.string(from: selection!.wrappedValue)}}
     var fieldType: String? {get { return "date" }}
 }

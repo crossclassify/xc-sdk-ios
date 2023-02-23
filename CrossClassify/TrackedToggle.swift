@@ -37,7 +37,7 @@ public struct TrackedToggle: TrackedField, View {
         .onAppear(perform: {Util.updateField(cc: cc, field: self)})
     }
 
-    var content: String {get {return String(isOn!.wrappedValue) ?? ""}}
+    var content: String {get {return String(isOn!.wrappedValue)}}
     var fieldType: String? {get { return "switch" }}
     
     var timeSpentEditing: TimeInterval? = nil

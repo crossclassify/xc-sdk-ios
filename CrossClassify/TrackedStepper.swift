@@ -37,7 +37,7 @@ public struct TrackedStepper: TrackedField, View {
         .onAppear(perform: {Util.updateField(cc: cc, field: self)})
     }
     
-    var content: String {get {return String(value!.wrappedValue) ?? ""}}
+    var content: String {get {return String(value!.wrappedValue)}}
     var fieldType: String? {get { return "stepper" }}
     
     var timeSpentEditing: TimeInterval? = nil
