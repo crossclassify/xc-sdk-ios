@@ -199,3 +199,11 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+
+   ## Third-Party Licenses
+
+   This project includes software components that are licensed under the MIT License. The MIT-licensed components are:
+
+   - [matomo-sdk-ios](https://github.com/matomo-org/matomo-sdk-ios) 
+
+   For details on the MIT License, see the [LICENSE-MIT](LICENSE-MIT) file.
