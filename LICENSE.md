@@ -206,4 +206,4 @@
 
    - [matomo-sdk-ios](https://github.com/matomo-org/matomo-sdk-ios) 
 
-   For details on the MIT License, see the [LICENSE-MIT](LICENSE-MIT) file.
+   For details on the MIT License, see the [LICENSE-MIT](LICENSE-MIT.md) file.
