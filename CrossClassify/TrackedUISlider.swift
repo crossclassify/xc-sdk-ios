@@ -4,7 +4,7 @@ import UIKit
 class TrackedUISlider: UISlider, TrackedField {
     
     @IBInspectable var id: String?
-    @IBInspectable var includeContent: String?
+    @IBInspectable var includeContent: Bool = false
     
     var metadata = Metadata()
     var _lastChange = NSDate().timeIntervalSince1970
@@ -32,6 +32,6 @@ class TrackedUISlider: UISlider, TrackedField {
     }
     
     var content: String {get {return String(value)}}
-    var trackContent: Bool {get { return includeContent != nil}}
+    var trackContent: Bool {get { return includeContent }}
     var fieldType: String? {get { return "slider" }}
 }

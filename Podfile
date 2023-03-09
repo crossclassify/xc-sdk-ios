@@ -8,6 +8,8 @@ abstract_target :example do
   
   target :CrossClassify do
     platform :ios, '13.0'
+
+    pod 'FingerprintPro'
   end
   
   target :FirebaseSwiftUI do
