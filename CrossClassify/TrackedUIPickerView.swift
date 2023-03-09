@@ -4,7 +4,7 @@ import UIKit
 class TrackedUIPickerView: UIPickerView, TrackedField {
     
     @IBInspectable var id: String?
-    @IBInspectable var includeContent: String?
+    @IBInspectable var includeContent: Bool = false
     
     var metadata = Metadata()
 //    var metadata = Metadata(trackFocus: true)
@@ -17,6 +17,6 @@ class TrackedUIPickerView: UIPickerView, TrackedField {
     }
 
     var content: String {get {return String(selectedRow(inComponent: 0))}}
-    var trackContent: Bool {get { return includeContent != nil}}
+    var trackContent: Bool {get { return includeContent }}
     var fieldType: String? {get { return "select" }}
 }

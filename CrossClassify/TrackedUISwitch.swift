@@ -4,7 +4,7 @@ import UIKit
 class TrackedUISwitch: UISwitch, TrackedField {
     
     @IBInspectable var id: String?
-    @IBInspectable var includeContent: String?
+    @IBInspectable var includeContent: Bool = false
     
     var metadata = Metadata()
 
@@ -19,6 +19,6 @@ class TrackedUISwitch: UISwitch, TrackedField {
     @objc func editingChanged(mySwitch: UISwitch) {metadata.editingChanged()}
     
     var content: String {get {return String(isOn)}}
-    var trackContent: Bool {get { return includeContent != nil}}
+    var trackContent: Bool {get { return includeContent }}
     var fieldType: String? {get { return "switch" }}
 }

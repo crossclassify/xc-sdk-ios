@@ -15,7 +15,7 @@ See Section [Setup Example Apps Locally](https://github.com/crossclassify/xc-sdk
 ### **Setup Example Apps locally**
 1.  Clone or download the project
 2.  Run the terminal on the project folder
-3.  ```pod install```
+3.  ```pod install``` or ```arch -x86_64 pod install```
 4.  Open .xcworkspace file
 5.  Copy the `GoogleService-Info.plist` (from your Firebase project) file to these paths:
     - ./Example/FirebaseSwiftUI/FirebaseSwiftUI
@@ -144,7 +144,7 @@ For each page that contains a form (e.g. signup, login) do the following instruc
 2.  **Specify Tracked Form Fields**
     - For a text field (e.g. email), change the `UITextField` class to `TrackedUITextField` and its module to `CrossClassify`.
 
-    - In the Attributes Inspector, add a new User Defined Runtime Attribute with Key Path `id` and set its value to the id of the text field (e.g. `password`). Also, if the text field doesn't contain private information (e.g. `username`), add another string attribute with Key Path `includeContent` and the empty value.
+    - In the Attributes Inspector, add a new User Defined Runtime Attribute with Key Path `id` and set its value to the id of the text field (e.g. `password`). Also, if the text field doesn't contain private information (e.g. `username`), add another boolean attribute with Key Path `includeContent`.
 
     With these steps, you have successfully added a TrackedUITextField to your ViewController and set its formName and id attributes. Repeat this process for any additional fields in your form. Supported UIKit fields in the CrossClassify SDK are `UITextField`, `UIDatePicker`, `UISegmentedControl`, `UIPickerView`, `UISwitch`, and `UISlider`. For all field types, simply add the `Tracked` prefix to the field name (e.g. `TrackedUIDatePicker`)
 
@@ -283,7 +283,7 @@ In this example, we show the changes made in a simple UIKit application, before 
                                 ...
 +                               <userDefinedRuntimeAttributes>
 +                                   <userDefinedRuntimeAttribute type="string" keyPath="id" value="username"/>
-+                                   <userDefinedRuntimeAttribute type="string" keyPath="includeContent" value=""/>
++                                   <userDefinedRuntimeAttribute type="boolean" keyPath="includeContent" value="YES"/>
 +                               </userDefinedRuntimeAttributes>
                             </textField>
                             

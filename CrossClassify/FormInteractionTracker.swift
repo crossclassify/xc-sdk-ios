@@ -17,6 +17,7 @@ public class FormInteractionTracker {
         let formTrack = FormTrack(formName, in: pageviewId, father: self)
         if view != nil {
             formTrack.retrieveFields(in: view!)
+            formTrack.validateForm()
         }
         startSending()
         self.formTrack = formTrack

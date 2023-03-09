@@ -17,10 +17,10 @@ public final class CrossClassify {
         matomoTracker.logger = DefaultLogger(minLevel: .error)
         self.navigationTracker = NavigationTracker(matomoTracker)
         self.formInteractionTracker = FormInteractionTracker(matomoTracker)
-         Task {
-             let client = FingerprintProFactory.getInstance("nLvTePYiYEFERqTHoSZ7")
-             self.navigationTracker.matomoTracker.userId = try? await client.getVisitorId()
-         }
+        Task {
+            let client = FingerprintProFactory.getInstance("nLvTePYiYEFERqTHoSZ7")
+            self.navigationTracker.matomoTracker.userId = try? await client.getVisitorId()
+        }
     }
     
     public func track(pageName: String, url: URL? = nil, formName: String? = nil, view: UIView? = nil) {
@@ -47,4 +47,5 @@ public final class CrossClassify {
 
 extension CrossClassify {
     static let baseUrl: String = "https://api.crossclassify.com/collect"
+    static let logger: DefaultLogger = DefaultLogger(minLevel: .warning)
 }

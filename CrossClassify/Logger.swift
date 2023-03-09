@@ -70,7 +70,7 @@ public final class DisabledLogger: Logger {
         guard level.rawValue >= minLevel.rawValue else { return }
         let messageToPrint = message()
         dispatchQueue.async {
-            print("MatomoTracker [\(level.shortcut)] \(messageToPrint)")
+            print("CrossClassify [\(level.shortcut)] \(messageToPrint)")
         }
     }
 }
