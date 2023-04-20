@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:CrossClassify.xcodeproj">
+      location = "group:Example/FirebaseUIKit/FirebaseUIKit/../../../CrossClassify/CrossClassify">
    </FileRef>
    <Group
       location = "container:"

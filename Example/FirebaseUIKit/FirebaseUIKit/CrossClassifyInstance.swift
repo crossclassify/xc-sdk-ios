@@ -1,4 +1,5 @@
 import CrossClassify
+import Foundation
 
 extension CrossClassify {
     public static var shared: CrossClassify {

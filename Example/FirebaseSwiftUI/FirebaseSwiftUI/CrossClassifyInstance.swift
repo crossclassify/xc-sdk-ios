@@ -1,3 +1,5 @@
+import Foundation
+
 import CrossClassify
 
 extension CrossClassify {
