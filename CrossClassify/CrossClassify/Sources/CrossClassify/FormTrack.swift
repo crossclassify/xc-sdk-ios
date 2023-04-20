@@ -15,20 +15,41 @@ internal class FormTrack {
     let father: FormInteractionTracker
     var formName: String
     var fields: [String: FieldTrack] = [:]
+    var hasTrackedButton = false
     
     var _formviewAt: TimeInterval = NSDate().timeIntervalSince1970
     var timeToFirstSubmit: TimeInterval = 0.0
     
     func retrieveFields(in view: UIView) {
-        
         for subview in view.subviews {
             if let field = subview as? TrackedField {
                 fields[field.id!] = FieldTrack(trackedField: field)
             } else if let button = subview as? TrackedUIButton {
+                hasTrackedButton = true
                 button.addTarget(self, action: #selector(pressed), for: .touchUpInside)
             } else {
                 retrieveFields(in: subview)
             }
+        }
+    }
+    
+    func validateForm() {
+        var hasEmailField = false
+        for field in fields {
+            if field.value.id.contains("email") {
+                if(!field.value.trackContent) {
+                    CrossClassify.logger.error("trackContent must be True in email field. (Form ID: \(self.formviewId))")
+                }
+                hasEmailField = true
+            }
+        }
+        if(formName.contains("login") || formName.contains("signup")) {
+            if !hasEmailField {
+                CrossClassify.logger.error("Email field not found in login/signup form. (Form ID: \(self.formviewId))")
+            }
+        }
+        if !hasTrackedButton {
+            CrossClassify.logger.log("No submit button (TrackedUIButton) found in the form. (Form ID: \(self.formviewId))", with: (formName.contains("login") || formName.contains("signup")) ? LogLevel.error : LogLevel.warning)
         }
     }
     
@@ -110,11 +131,11 @@ internal class FormTrack {
             string += "    content: \(field.content ?? "")\n"
             string += "    Total focused time:\(field.timeSpentEditing != nil ? String(field.timeSpentEditing!) : "N/A")\n"
             string += "    Focused time before first change: \(field.timeSpentBeforeEditing != nil ? String(field.timeSpentBeforeEditing!) : "N/A")\n"
-//            string += "    Currently editing: \(field.isEditing)\n"
+            //            string += "    Currently editing: \(field.isEditing)\n"
             string += "    Number of changes: \(field.numChanges != nil ? String(field.numChanges!) : "N/A")\n"
             string += "    Number of focuses: \(field.numFocus != nil ? String(field.numFocus!) : "N/A")\n"
             string += "    Number of deletes: \(field.numDeletes != nil ? String(field.numDeletes!) : "N/A")\n"
-//            string += "    Number of cursors: \(field.numCursor)\n"
+            //            string += "    Number of cursors: \(field.numCursor)\n"
         }
         string += "-------------------------\n"
         return string

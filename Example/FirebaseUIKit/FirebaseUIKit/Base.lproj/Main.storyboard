@@ -48,8 +48,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="includeContent" value=""/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="id" value="email"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="includeContent" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CoX-mZ-vtB">
@@ -121,7 +121,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="includeContent" value=""/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="includeContent" value="YES"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="id" value="email"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
@@ -138,7 +138,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="includeContent" value=""/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="includeContent" value="YES"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="id" value="name"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
@@ -147,7 +147,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="includeContent" value=""/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="includeContent" value="YES"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="id" value="lastname"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
@@ -156,7 +156,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="includeContent" value=""/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="includeContent" value="YES"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="id" value="major"/>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
                                         </userDefinedRuntimeAttributes>
@@ -166,7 +166,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="includeContent" value=""/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="includeContent" value="YES"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="id" value="semester"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
