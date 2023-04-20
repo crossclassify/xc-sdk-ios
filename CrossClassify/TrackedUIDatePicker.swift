@@ -4,10 +4,10 @@ import UIKit
 class TrackedUIDatePicker: UIDatePicker, TrackedField {
     
     @IBInspectable var id: String?
-    @IBInspectable var includeContent: String?
+    @IBInspectable var includeContent: Bool = false
     
     var metadata = Metadata(trackFocus: true)
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         if value(forKey: "id") == nil {
@@ -28,6 +28,6 @@ class TrackedUIDatePicker: UIDatePicker, TrackedField {
         dateFormatter.dateFormat = "YY/MM/dd HH:mm:ss"
         return dateFormatter.string(from: date)
     }}
-    var trackContent: Bool {get { return includeContent != nil}}
+    var trackContent: Bool {get { return includeContent }}
     var fieldType: String? {get { return "date" }}
 }

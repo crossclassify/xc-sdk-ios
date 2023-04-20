@@ -4,7 +4,7 @@ import UIKit
 class TrackedUITextField: UITextField, UITextFieldDelegate, TrackedField {
     
     @IBInspectable var id: String?
-    @IBInspectable var includeContent: String? //TODO: change to bool or nil var
+    @IBInspectable var includeContent: Bool = false
     
     var metadata = Metadata(trackFocus: true, trackDelete: true)
     
@@ -43,6 +43,6 @@ class TrackedUITextField: UITextField, UITextFieldDelegate, TrackedField {
     }
     
     var content: String {get {return text ?? "" }}
-    var trackContent: Bool {get { return includeContent != nil}}
+    var trackContent: Bool {get { return includeContent }}
     var fieldType: String? {get { return "text" }}
 }
