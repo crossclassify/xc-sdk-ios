@@ -37,17 +37,45 @@ To make it easy for you to get started with CrossClassify SDK, here's the list o
 
 
 ### **Step 1:** Install the CrossClassify SDK
+-  **CocoaPods**
 
-1.  Open a terminal window and navigate to the root directory of your project.
+    1.  Open a terminal window and navigate to the root directory of your project.
 
-2.  If you don't already have a `Podfile`, create one by running the following command:
-```pod init``` 
+    2.  If you don't already have a `Podfile`, create one by running the following command:
+    ```pod init``` 
 
-3.  Open the `Podfile` in a text editor and add the following line:
-```pod 'CrossClassify'```
+    3.  Open the `Podfile` in a text editor and add the following line:
+    ```pod 'CrossClassify'```
 
-4.  Save the `Podfile` and run the following command to install the CrossClassify SDK:
-```pod install```
+    4.  Save the `Podfile` and run the following command to install the CrossClassify SDK:
+    ```pod install```
+
+- **Swift Package Manager**
+
+
+    To integrate via a `Package.swift` manifest instead of Xcode, you can add
+    CrossClassify to the dependencies array of your package:
+
+    ```swift
+    dependencies: [
+    .package(url: "https://github.com/crossclassify/xc-sdk-ios", from: "1.0.1"),
+    // Any other dependencies you have...
+    ],
+    ```
+
+    Then, in any target that depends on the CrossClassify SDK, add it to the `dependencies`
+    array of that target:
+
+    ```swift
+    .target(
+    name: "MyTargetName",
+    dependencies: [
+        .product(name: "CrossClassify", package: "xc-sdk-ios"),
+        // Any other dependencies you have...
+    ]
+    ),
+    ```
+    Or add the package by selecting `File` → `Add Packages…` in Xcode’s menu bar.
 
 ### **Step 2:** Import the CrossClassify module
 
@@ -262,58 +290,12 @@ In this example, we show the changes made in a simple UIKit application, before 
 
 ### Login.storyboard
 
-```diff
-<?xml version="1.0" encoding="UTF-8"?>
-<document ...>
-    ...
-    <scenes>
-        <!--View Controller-->
-        <scene ...>
-            <objects>
-                <viewController ...>
-                    <view ...>
-                        ...
-                        <subviews>
-                            ...
+- Email Field:
 
-                            <!-- The username textfield with content tracking -->
-                            <textField placeholder="Username"
-+                           customClass="TrackedUITextField" customModule="CrossClassify"
-                            ... >
-                                ...
-+                               <userDefinedRuntimeAttributes>
-+                                   <userDefinedRuntimeAttribute type="string" keyPath="id" value="username"/>
-+                                   <userDefinedRuntimeAttribute type="boolean" keyPath="includeContent" value="YES"/>
-+                               </userDefinedRuntimeAttributes>
-                            </textField>
-                            
-                            <!-- The username textfield without content tracking -->
-                            <textField placeholder="Password"
-+                           customClass="TrackedUITextField" customModule="CrossClassify"
-                            ... >
-                                ...
-+                               <userDefinedRuntimeAttributes>
-+                                   <userDefinedRuntimeAttribute type="string" keyPath="id" value="password"/
-+                               </userDefinedRuntimeAttributes>
-                            </textField>
-
-                            <!-- The form submission button -->
-                            <button
-+                           customClass="TrackedUIButton" customModule="CrossClassify"
-                            ... >
-                                ...
-                            </button>
-
-                        </subviews>
-                       ...
-                    </view>
-                </viewController>
-                ...
-            </objects>
-            ...
-        </scene>
-    </scenes>
-    ...
-</document>
-
-```
+<p align="center">
+<img src="./screenshots/storyboard_email.png" width="700">
+</p>
+- Button:
+<p align="center">
+<img align="center" src="./screenshots/storyboard_button.png" width="700">
+</p>
