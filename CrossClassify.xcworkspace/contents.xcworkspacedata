@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <FileRef
-      location = "group:Example/FirebaseUIKit/FirebaseUIKit/../../../CrossClassify/CrossClassify">
-   </FileRef>
    <Group
       location = "container:"
-      name = "Examples">
+      name = "Example">
       <FileRef
          location = "group:Example/FirebaseUIKit/FirebaseUIKit.xcodeproj">
       </FileRef>

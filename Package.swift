@@ -24,9 +24,13 @@ let package = Package(
             name: "CrossClassify",
             dependencies: [
                 .product(name: "FingerprintPro", package: "fingerprintjs-pro-ios")
-            ]),
+            ],
+            exclude: ["Example"]
+        ),
         .testTarget(
             name: "CrossClassifyTests",
-            dependencies: ["CrossClassify" ]),
+            dependencies: ["CrossClassify"],
+            exclude: ["Example"]
+        ),
     ]
 )
