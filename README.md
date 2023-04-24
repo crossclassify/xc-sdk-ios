@@ -1,14 +1,17 @@
 # CrossClassify iOS SDK
 The CrossClassify SDK for iOS apps, with two integrated examples:
-* [FirebaseSwiftUI](https://github.com/Balaviknesh/iOS-SwiftUI-Firebase-Login-Example): a simple SwiftUI app for login/signup using Firebase Authentication
-* [FirebaseUIKit](https://github.com/angelmtzr/ios-firebase-example): a simple UIKit app for login/signup using Firebase Authentication
+* [FirebaseSwiftUI](https://github.com/Balaviknesh/iOS-SwiftUI-Firebase-Login-Example): a simple **SwiftUI** app for login/signup using Firebase Authentication integrated with CrossClassify SDK using **CocoaPods**
+* [FirebaseUIKit](https://github.com/angelmtzr/ios-firebase-example): a simple **UIKit** app for login/signup using Firebase Authentication integrated with CrossClassify SDK using **Swift Package Manager**
 
 See Section [Setup Example Apps Locally](https://github.com/crossclassify/xc-sdk-ios/#setup-example-apps-locally) to run the complete example apps, or navigate to Section [SDK Integration Guide](https://github.com/crossclassify/xc-sdk-ios/#sdk-integration-guide) to easily integrate CrossClassify SDK with your iOS app.
 
 ### **Prerequisites**
 
--   Xcode
--   Cocoapods
+-   iOS 13.0 (or later)
+-   Xcode 13.3.1 (or later)
+-   Swift 5.6 (or later)
+-   CocoaPods 1.10.0 (or later) or Swift Package Manager Support
+-   SwiftUI or UIKit
 -   A [CrossClassify](https://app.crossclassify.com) account
 -   A Firebase account (only for example apps)
 
@@ -202,7 +205,8 @@ Account Takeover Service:
 
 ## A Simple SwiftUI Example
 In this example, we show the changes made in a simple SwiftUI application, before and after applying the integration steps. The `CrossClassifyInstance.swift` is a new file, and the `LoginView.swift` is an existing file:
-### CrossClassifyInstance.swift
+### [CrossClassifyInstance.swift](Example/FirebaseSwiftUI/FirebaseSwiftUI/CrossClassifyInstance.swift)
+
 ```diff
 +   import CrossClassify
 +
@@ -212,13 +216,13 @@ In this example, we show the changes made in a simple SwiftUI application, befor
 
 ```
 
-### LoginView.swift
+### [SignInView.swift](Example/FirebaseSwiftUI/FirebaseSwiftUI/SignInView.swift)
 
 ```diff
     import SwiftUI
 +   import CrossClassify
 
-    struct LoginView: View {
+    struct SignInView: View {
 
         @State var emailAddress: String = ""
         @State var password: String = ""
@@ -257,7 +261,7 @@ In this example, we show the changes made in a simple SwiftUI application, befor
 ## A Simple UIKit Example
 In this example, we show the changes made in a simple UIKit application, before and after applying the integration steps. The `CrossClassifyInstance.swift` is a new file. Also, `LoginViewController.swift` and `Login.storyboard` are existing files:
 
-### CrossClassifyInstance.swift
+### [CrossClassifyInstance.swift](Example/FirebaseUIKit/FirebaseUIKit/CrossClassifyInstance.swift)
 ```diff
 +   import CrossClassify
 +
@@ -266,7 +270,7 @@ In this example, we show the changes made in a simple UIKit application, before 
 +   }
 
 ```
-### LoginViewController.swift
+### [LoginViewController.swift](Example/FirebaseUIKit/FirebaseUIKit/LoginViewController.swift)
 
 ```diff
     import UIKit
@@ -288,14 +292,16 @@ In this example, we show the changes made in a simple UIKit application, before 
     }
 ```
 
-### Login.storyboard
+### [Main.storyboard](Example/FirebaseUIKit/FirebaseUIKit/Base.lproj/Main.storyboard)
 
 - Email Field:
 
 <p align="center">
 <img src="./screenshots/storyboard_email.png" width="700">
 </p>
+
 - Button:
+
 <p align="center">
 <img align="center" src="./screenshots/storyboard_button.png" width="700">
 </p>
