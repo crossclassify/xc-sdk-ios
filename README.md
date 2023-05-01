@@ -3,7 +3,7 @@ The CrossClassify SDK for iOS apps, with two integrated examples:
 * [FirebaseSwiftUI](https://github.com/Balaviknesh/iOS-SwiftUI-Firebase-Login-Example): a simple **SwiftUI** app for login/signup using Firebase Authentication integrated with CrossClassify SDK using **CocoaPods**
 * [FirebaseUIKit](https://github.com/angelmtzr/ios-firebase-example): a simple **UIKit** app for login/signup using Firebase Authentication integrated with CrossClassify SDK using **Swift Package Manager**
 
-See Section [Setup Example Apps Locally](./#setup-example-apps-locally) to run the complete example apps, or navigate to Section [SDK Integration Guide](./#sdk-integration-guide) to easily integrate CrossClassify SDK with your iOS app.
+See Section [Setup Example Apps Locally](#setup-example-apps-locally) to run the complete example apps, or navigate to Section [SDK Integration Guide](#sdk-integration-guide) to easily integrate CrossClassify SDK with your iOS app.
 
 ### **Prerequisites**
 
@@ -32,11 +32,11 @@ See Section [Setup Example Apps Locally](./#setup-example-apps-locally) to run t
 
 To make it easy for you to get started with CrossClassify SDK, here's the list of the next steps:
 
-1. [Install the CrossClassify SDK](./#step-1-install-the-crossclassify-sdk)
-2. [Import the CrossClassify module](./#step-2-import-the-crossclassify-module)
-3. [Initialize the CrossClassify object](./#step-3-initialize-the-crossclassify-object)
-4. [Track pages without any form](./#step-4-track-pages-without-any-form)
-5. [ Track pages containing a form](./#step-5-track-pages-containing-a-form)
+1. [Install the CrossClassify SDK](#step-1-install-the-crossclassify-sdk)
+2. [Import the CrossClassify module](#step-2-import-the-crossclassify-module)
+3. [Initialize the CrossClassify object](#step-3-initialize-the-crossclassify-object)
+4. [Track pages without any form](#step-4-track-pages-without-any-form)
+5. [ Track pages containing a form](#step-5-track-pages-containing-a-form)
 
 
 ### **Step 1:** Install the CrossClassify SDK
