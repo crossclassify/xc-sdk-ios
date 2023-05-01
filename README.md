@@ -3,7 +3,7 @@ The CrossClassify SDK for iOS apps, with two integrated examples:
 * [FirebaseSwiftUI](https://github.com/Balaviknesh/iOS-SwiftUI-Firebase-Login-Example): a simple **SwiftUI** app for login/signup using Firebase Authentication integrated with CrossClassify SDK using **CocoaPods**
 * [FirebaseUIKit](https://github.com/angelmtzr/ios-firebase-example): a simple **UIKit** app for login/signup using Firebase Authentication integrated with CrossClassify SDK using **Swift Package Manager**
 
-See Section [Setup Example Apps Locally](https://github.com/crossclassify/xc-sdk-ios/#setup-example-apps-locally) to run the complete example apps, or navigate to Section [SDK Integration Guide](https://github.com/crossclassify/xc-sdk-ios/#sdk-integration-guide) to easily integrate CrossClassify SDK with your iOS app.
+See Section [Setup Example Apps Locally](./#setup-example-apps-locally) to run the complete example apps, or navigate to Section [SDK Integration Guide](./#sdk-integration-guide) to easily integrate CrossClassify SDK with your iOS app.
 
 ### **Prerequisites**
 
@@ -32,11 +32,11 @@ See Section [Setup Example Apps Locally](https://github.com/crossclassify/xc-sdk
 
 To make it easy for you to get started with CrossClassify SDK, here's the list of the next steps:
 
-1. [Install the CrossClassify SDK](https://github.com/crossclassify/xc-sdk-ios/#step-1-install-the-crossclassify-sdk)
-2. [Import the CrossClassify module](https://github.com/crossclassify/xc-sdk-ios/#step-2-import-the-crossclassify-module)
-3. [Initialize the CrossClassify object](https://github.com/crossclassify/xc-sdk-ios/#step-3-initialize-the-crossclassify-object)
-4. [Track pages without any form](https://github.com/crossclassify/xc-sdk-ios/#step-4-track-pages-without-any-form)
-5. [ Track pages containing a form](https://github.com/crossclassify/xc-sdk-ios/#step-5-track-pages-containing-a-form)
+1. [Install the CrossClassify SDK](./#step-1-install-the-crossclassify-sdk)
+2. [Import the CrossClassify module](./#step-2-import-the-crossclassify-module)
+3. [Initialize the CrossClassify object](./#step-3-initialize-the-crossclassify-object)
+4. [Track pages without any form](./#step-4-track-pages-without-any-form)
+5. [ Track pages containing a form](./#step-5-track-pages-containing-a-form)
 
 
 ### **Step 1:** Install the CrossClassify SDK
@@ -205,7 +205,7 @@ Account Takeover Service:
 
 ## A Simple SwiftUI Example
 In this example, we show the changes made in a simple SwiftUI application, before and after applying the integration steps. The `CrossClassifyInstance.swift` is a new file, and the `LoginView.swift` is an existing file:
-### [CrossClassifyInstance.swift](Example/FirebaseSwiftUI/FirebaseSwiftUI/CrossClassifyInstance.swift)
+### [CrossClassifyInstance.swift](https://github.com/crossclassify/xc-sdk-ios/blob/main/Example/FirebaseSwiftUI/FirebaseSwiftUI/CrossClassifyInstance.swift)
 
 ```diff
 +   import CrossClassify
@@ -216,7 +216,7 @@ In this example, we show the changes made in a simple SwiftUI application, befor
 
 ```
 
-### [SignInView.swift](Example/FirebaseSwiftUI/FirebaseSwiftUI/SignInView.swift)
+### [SignInView.swift](https://github.com/crossclassify/xc-sdk-ios/blob/main/Example/FirebaseSwiftUI/FirebaseSwiftUI/SignInView.swift)
 
 ```diff
     import SwiftUI
@@ -261,7 +261,7 @@ In this example, we show the changes made in a simple SwiftUI application, befor
 ## A Simple UIKit Example
 In this example, we show the changes made in a simple UIKit application, before and after applying the integration steps. The `CrossClassifyInstance.swift` is a new file. Also, `LoginViewController.swift` and `Login.storyboard` are existing files:
 
-### [CrossClassifyInstance.swift](Example/FirebaseUIKit/FirebaseUIKit/CrossClassifyInstance.swift)
+### [CrossClassifyInstance.swift](https://github.com/crossclassify/xc-sdk-ios/blob/main/Example/FirebaseUIKit/FirebaseUIKit/CrossClassifyInstance.swift)
 ```diff
 +   import CrossClassify
 +
@@ -270,7 +270,7 @@ In this example, we show the changes made in a simple UIKit application, before 
 +   }
 
 ```
-### [LoginViewController.swift](Example/FirebaseUIKit/FirebaseUIKit/LoginViewController.swift)
+### [LoginViewController.swift](https://github.com/crossclassify/xc-sdk-ios/blob/main/Example/FirebaseUIKit/FirebaseUIKit/LoginViewController.swift)
 
 ```diff
     import UIKit
@@ -292,16 +292,11 @@ In this example, we show the changes made in a simple UIKit application, before 
     }
 ```
 
-### [Main.storyboard](Example/FirebaseUIKit/FirebaseUIKit/Base.lproj/Main.storyboard)
+### [Main.storyboard](https://github.com/crossclassify/xc-sdk-ios/blob/main/Example/FirebaseUIKit/FirebaseUIKit/Base.lproj/Main.storyboard)
 
 - Email Field:
 
-<p align="center">
-<img src="./screenshots/storyboard_email.png" width="700">
-</p>
+    ![alt text](https://github.com/crossclassify/xc-sdk-ios/raw/main/screenshots/storyboard_email.png)
 
 - Button:
-
-<p align="center">
-<img align="center" src="./screenshots/storyboard_button.png" width="700">
-</p>
+    ![alt text](https://github.com/crossclassify/xc-sdk-ios/raw/main/screenshots/storyboard_button.png)
