@@ -299,4 +299,5 @@ In this example, we show the changes made in a simple UIKit application, before 
     ![alt text](https://github.com/crossclassify/xc-sdk-ios/raw/main/screenshots/storyboard_email.png)
 
 - Button:
+
     ![alt text](https://github.com/crossclassify/xc-sdk-ios/raw/main/screenshots/storyboard_button.png)
