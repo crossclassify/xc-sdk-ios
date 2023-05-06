@@ -1,7 +1,7 @@
 # CrossClassify iOS SDK
 The CrossClassify SDK for iOS apps, with two integrated examples:
-* [FirebaseSwiftUI](https://github.com/Balaviknesh/iOS-SwiftUI-Firebase-Login-Example): a simple **SwiftUI** app for login/signup using Firebase Authentication integrated with CrossClassify SDK using **CocoaPods**
-* [FirebaseUIKit](https://github.com/angelmtzr/ios-firebase-example): a simple **UIKit** app for login/signup using Firebase Authentication integrated with CrossClassify SDK using **Swift Package Manager**
+* [FirebaseSwiftUI](https://github.com/Balaviknesh/iOS-SwiftUI-Firebase-Login-Example): a simple **SwiftUI** app for login/signup using Firebase Authentication integrated with CrossClassify SDK using **Swift Package Manager**
+* [FirebaseUIKit](https://github.com/angelmtzr/ios-firebase-example): a simple **UIKit** app for login/signup using Firebase Authentication integrated with CrossClassify SDK using **CocoaPods**
 
 See Section [Setup Example Apps Locally](#setup-example-apps-locally) to run the complete example apps, or navigate to Section [SDK Integration Guide](#sdk-integration-guide) to easily integrate CrossClassify SDK with your iOS app.
 
@@ -10,7 +10,7 @@ See Section [Setup Example Apps Locally](#setup-example-apps-locally) to run the
 -   iOS 13.0 (or later)
 -   Xcode 13.3.1 (or later)
 -   Swift 5.6 (or later)
--   CocoaPods 1.10.0 (or later) or Swift Package Manager Support
+-   SwiftPM or CocoaPods 1.10.0 (or later)
 -   SwiftUI or UIKit
 -   A [CrossClassify](https://app.crossclassify.com) account
 -   A Firebase account (only for example apps)
@@ -40,19 +40,6 @@ To make it easy for you to get started with CrossClassify SDK, here's the list o
 
 
 ### **Step 1:** Install the CrossClassify SDK
--  **CocoaPods**
-
-    1.  Open a terminal window and navigate to the root directory of your project.
-
-    2.  If you don't already have a `Podfile`, create one by running the following command:
-    ```pod init``` 
-
-    3.  Open the `Podfile` in a text editor and add the following line:
-    ```pod 'CrossClassify'```
-
-    4.  Save the `Podfile` and run the following command to install the CrossClassify SDK:
-    ```pod install```
-
 - **Swift Package Manager**
 
 
@@ -79,6 +66,19 @@ To make it easy for you to get started with CrossClassify SDK, here's the list o
     ),
     ```
     Or add the package by selecting `File` → `Add Packages…` in Xcode’s menu bar.
+
+-  **CocoaPods**
+
+    1.  Open a terminal window and navigate to the root directory of your project.
+
+    2.  If you don't already have a `Podfile`, create one by running the following command:
+    ```pod init``` 
+
+    3.  Open the `Podfile` in a text editor and add the following line:
+    ```pod 'CrossClassify'```
+
+    4.  Save the `Podfile` and run the following command to install the CrossClassify SDK:
+    ```pod install```
 
 ### **Step 2:** Import the CrossClassify module
 

@@ -6,14 +6,14 @@ abstract_target :example do
   project 'CrossClassify'
   workspace 'CrossClassify'
   
-  target :FirebaseSwiftUI do
+  target :FirebaseUIKit do
     platform :ios, '13.0'
-    project 'Example/FirebaseSwiftUI/FirebaseSwiftUI'
+    project 'Example/FirebaseUIKit/FirebaseUIKit'
     # pod 'CrossClassify'
-    pod 'CrossClassify', :path => './'
+   pod 'CrossClassify', :path => './'
     
-    pod 'Firebase/Analytics'
     pod 'Firebase/Auth'
+    pod 'Firebase/Database'
     pod 'GoogleUtilities'
   end
   
