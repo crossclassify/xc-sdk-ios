@@ -29,8 +29,8 @@ public class FormInteractionTracker {
     }
     
     internal func startSending(){
-        senderTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [self] (timer) in
-            print("run every 5 seconds... ")
+        senderTimer = Timer.scheduledTimer(withTimeInterval: 30, repeats: true) { [self] (timer) in
+            print("run every 30 seconds... ")
             sendForm(false)
         }
     }
