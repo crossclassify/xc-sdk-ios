@@ -10,7 +10,7 @@ abstract_target :example do
     platform :ios, '13.0'
     project 'Example/FirebaseUIKit/FirebaseUIKit'
     # pod 'CrossClassify'
-   pod 'CrossClassify', :path => './'
+    pod 'CrossClassify', :path => './'
     
     pod 'Firebase/Auth'
     pod 'Firebase/Database'

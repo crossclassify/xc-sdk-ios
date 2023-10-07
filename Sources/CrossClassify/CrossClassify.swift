@@ -1,5 +1,6 @@
 import Foundation
 import FingerprintPro
+import FingerprintJS
 import SwiftUI
 
 public final class CrossClassify {
@@ -20,6 +21,11 @@ public final class CrossClassify {
         Task {
             let client = FingerprintProFactory.getInstance("nLvTePYiYEFERqTHoSZ7")
             self.navigationTracker.matomoTracker.userId = try? await client.getVisitorId()
+            if self.navigationTracker.matomoTracker.userId == nil {
+                let configuration = Configuration(version: .latest, stabilityLevel: .optimal, algorithm: .sha256)
+                let fingerprinter = FingerprinterFactory.getInstance(configuration)
+                self.navigationTracker.matomoTracker.userId = await fingerprinter.getFingerprint()
+            }
         }
     }
     

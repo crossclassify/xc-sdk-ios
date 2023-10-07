@@ -15,7 +15,9 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
-        .package(url: "https://github.com/fingerprintjs/fingerprintjs-pro-ios", from: "2.0.0")
+        .package(url: "https://github.com/fingerprintjs/fingerprintjs-pro-ios", from: "2.0.0"),
+        .package(url: "https://github.com/fingerprintjs/fingerprintjs-ios", from: "1.4.1"),
+//        .package(url: "https://github.com/google/google-api-objectivec-client-for-rest.git", from: "3.1.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -23,7 +25,9 @@ let package = Package(
         .target(
             name: "CrossClassify",
             dependencies: [
-                .product(name: "FingerprintPro", package: "fingerprintjs-pro-ios")
+                .product(name: "FingerprintPro", package: "fingerprintjs-pro-ios"),
+                .product(name: "FingerprintJS", package: "fingerprintjs-ios"),
+//                .product(name: "GoogleAPIClientForREST", package: "google-api-objectivec-client-for-rest.git"),
             ],
             exclude: ["Example"]
         ),
