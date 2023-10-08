@@ -14,6 +14,7 @@ Pod::Spec.new do |spec|
   
   spec.ios.frameworks = 'UIKit'
   spec.dependency 'FingerprintPro', '~> 2.1.8'
+  spec.dependency 'FingerprintJS', '~> 1.4.1'
   # spec.tvos.frameworks = 'UIKit'
   
   spec.subspec 'Core' do |core|
